@@ -9,11 +9,10 @@
     wl-clipboard	    # Clipboard
     libnotify
     direnv
+		socat
 
     # Theme
     whitesur-cursors
-    lutris
-
   ];
 
   home.sessionVariables = {
@@ -40,7 +39,7 @@
     systemd.enable = true;
     
     plugins = [
-      pkgs.hyprlandPlugins.hyprspace
+      #pkgs.hyprlandPlugins.hyprspace
     ];
   };
 }

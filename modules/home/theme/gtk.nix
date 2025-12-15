@@ -7,10 +7,10 @@
       name = "Breeze-Dark";
       package = pkgs.kdePackages.breeze-icons;
     };
-    cursorTheme = {
-      name = "WhiteSur-cursors";
-      package = pkgs.whitesur-cursors;
-    };
+#    cursorTheme = {
+#      name = "WhiteSur-cursors";
+#      package = pkgs.whitesur-cursors;
+#    };
     theme = {
       name = "Orchis";
     };
