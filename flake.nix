@@ -18,6 +18,10 @@
     nixvim = {
       url = "github:nix-community/nixvim/nixos-25.11";
     };
+    hyprspace-patch = {
+      url = "path:./assets/hyprspace-patch";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =

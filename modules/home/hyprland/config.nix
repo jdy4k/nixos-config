@@ -4,9 +4,6 @@
   username,
   ...
 }: 
-#let
-#	hyprspace = "${./../../../assets/hypr-plugins/hyprspace-patch/Hyprspace.so}";
-#in
 {
   wayland.windowManager.hyprland = {
     settings = {
@@ -29,7 +26,6 @@
         "hyprpaper &"
         "fcitx5 -dr &"
 				"quickshell &"
-				#"hyprctl plugin load ${hyprspace}"
       ];
 
       input = {
@@ -78,7 +74,7 @@
         rounding = 5;
         rounding_power = 10;
         active_opacity = 1.0;
-        inactive_opacity = 0.99;
+        inactive_opacity = 1.0;
         fullscreen_opacity = 1.0;
 
         blur = {
@@ -157,6 +153,7 @@
         "$mainMod SHIFT, 8, movetoworkspace, 8"
         "$mainMod SHIFT, 9, movetoworkspace, 9"
         "$mainMod SHIFT, 0, movetoworkspace, 10"
+				"$mainMod, TAB, exec, overview-wrapper.sh"
 
         " ,XF86AudioRaiseVolume, exec, wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 1%+ && eww update volume-json='amixer sget Master | jc --amixer'"
         " ,XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 1%- && eww update volume-json='amixer sget Master | jc --amixer'"

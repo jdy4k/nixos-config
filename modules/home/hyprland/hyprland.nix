@@ -13,6 +13,9 @@
 
     # Theme
     whitesur-cursors
+
+		# Overview wrapper
+		(writeShellScriptBin "overview-wrapper.sh" (builtins.readFile ./../../../assets/bin/overview-wrapper.sh))
   ];
 
   home.sessionVariables = {
@@ -39,7 +42,7 @@
     systemd.enable = true;
     
     plugins = [
-      #pkgs.hyprlandPlugins.hyprspace
+      inputs.hyprspace-patch.packages.${pkgs.system}.Hyprspace
     ];
   };
 }
