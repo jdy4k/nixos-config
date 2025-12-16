@@ -2,14 +2,18 @@
 1. Vary condition based on screen resolution
     - Font sizes / scale
     - Hyprpaper output
-2. Multimonitor
-    - Hyprpaper
+2. Coding env nix files
+    - For quarto
+    - For Jekyll
+    - Typescript
+    - Bioinfo w/mamba
+    - Manage vscode/cursor extensions via hm
 3. Hyprland config
     - Screenshot
+    - Quickshell for screenshot
 4. Make role nix files
-5. Make a decent animation for wofi
-    - Or make a runner in quickshell with dynamic sizing?
-6. Force native title decoractions
-7. Hyprland resizing
+5. Hyprland resizing
+    - Mouse 2 resize & and keybinds
+6. Replace wofi and dunst with quickshell
 
 ?. Make installer script

@@ -7,5 +7,11 @@
     ++ [ (import ./librewolf.nix) ]
     ++ [ (import ./mpv.nix) ]
     ++ [ (import ./zathura.nix) ]
-    ++ [ (import ./vscodium.nix) ];
+    ++ [ (import ./vscodium.nix) ]
+		++ [ (import ./git.nix) ]
+    ++ [ (import ./ncmpcpp.nix) ]
+    ++ [ (import ./nvim.nix) ]
+
+    ++ [ (import ./lf) ];
+
 }

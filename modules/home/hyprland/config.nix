@@ -26,6 +26,7 @@
         "hyprpaper &"
         "fcitx5 -dr &"
 				"quickshell &"
+        ''hyprctl dispatch exec "[workspace special silent]" kitty -1''
       ];
 
       input = {
@@ -39,7 +40,7 @@
 
       general = {
         "$mainMod" = "SUPER";
-        "$terminal" = "kitty";
+        "$terminal" = "kitty -1";
         "$menu" = "flock --nonblock /tmp/.wofi.lock wofi --show drun";
         layout = "dwindle";
         gaps_in = 5;
@@ -97,23 +98,23 @@
         ];
 
         animation = [
-          "global,        1,     10,    default                "
-          "border,        1,     5.39,  easeOutQuint"
-          "windows,       1,     4.79,  easeOutQuint"
-          "windowsIn,     1,     4.1,   easeOutQuint, popin 87%"
-          "windowsOut,    1,     1.49,  linear,       popin 87%"
-          "fadeIn,        1,     1.73,  almostLinear"
-          "fadeOut,       1,     1.46,  almostLinear"
-          "fade,          1,     3.03,  quick"
-          "layers,        1,     3.81,  easeOutQuint"
-          "layersIn,      1,     4,     easeOutQuint, fade"
-          "layersOut,     1,     1.5,   linear,       fade"
-          "fadeLayersIn,  1,     1.79,  almostLinear"
-          "fadeLayersOut, 1,     1.39,  almostLinear"
-          "workspaces,    1,     1.94,  almostLinear, fade"
-          "workspacesIn,  1,     1.21,  almostLinear, fade"
-          "workspacesOut, 1,     1.94,  almostLinear, fade"
-          "zoomFactor,    1,     7,     quick"
+          "global,        1,     5,     default                "
+          "border,        1,     2.695, easeOutQuint"
+          "windows,       1,     2.395, easeOutQuint"
+          "windowsIn,     1,     2.05,  easeOutQuint, popin 87%"
+          "windowsOut,    1,     0.745, linear,       popin 87%"
+          "fadeIn,        1,     0.865, almostLinear"
+          "fadeOut,       1,     0.73,  almostLinear"
+          "fade,          1,     1.515, quick"
+          "layers,        1,     1.905, easeOutQuint"
+          "layersIn,      1,     2,     easeOutQuint, fade"
+          "layersOut,     1,     0.75,  linear,       fade"
+          "fadeLayersIn,  1,     0.895, almostLinear"
+          "fadeLayersOut, 1,     0.695, almostLinear"
+          "workspaces,    1,     0.97,  almostLinear, fade"
+          "workspacesIn,  1,     0.605, almostLinear, fade"
+          "workspacesOut, 1,     0.97,  almostLinear, fade"
+          "zoomFactor,    1,     3.5,   quick"
         ];
       };
 
@@ -153,7 +154,7 @@
         "$mainMod SHIFT, 8, movetoworkspace, 8"
         "$mainMod SHIFT, 9, movetoworkspace, 9"
         "$mainMod SHIFT, 0, movetoworkspace, 10"
-				"$mainMod, TAB, exec, overview-wrapper.sh"
+				# "$mainMod, TAB, exec, overview-wrapper.sh"
 
         " ,XF86AudioRaiseVolume, exec, wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 1%+ && eww update volume-json='amixer sget Master | jc --amixer'"
         " ,XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 1%- && eww update volume-json='amixer sget Master | jc --amixer'"

@@ -10,6 +10,7 @@
     ./hardware-configuration.nix
     ./../../modules/core
     ./../../modules/extra/coding.nix
+    ./../../modules/extra/gaming.nix
   ];
 
   networking.hostName = "lenovo-blue";

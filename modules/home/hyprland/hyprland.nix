@@ -15,7 +15,7 @@
     whitesur-cursors
 
 		# Overview wrapper
-		(writeShellScriptBin "overview-wrapper.sh" (builtins.readFile ./../../../assets/bin/overview-wrapper.sh))
+		#(writeShellScriptBin "overview-wrapper.sh" (builtins.readFile ./../../../assets/bin/overview-wrapper.sh))
   ];
 
   home.sessionVariables = {
@@ -42,7 +42,7 @@
     systemd.enable = true;
     
     plugins = [
-      inputs.hyprspace-patch.packages.${pkgs.system}.Hyprspace
+      #inputs.hyprspace-patch.packages.${pkgs.system}.Hyprspace
     ];
   };
 }
