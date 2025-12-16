@@ -40,9 +40,5 @@
       enable = true;
     };
     systemd.enable = true;
-    
-    plugins = [
-      #inputs.hyprspace-patch.packages.${pkgs.system}.Hyprspace
-    ];
   };
 }

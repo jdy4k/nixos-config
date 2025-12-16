@@ -21,6 +21,10 @@
     allowUnfree = true;
   };
 
+  nixpkgs.overlays = [
+    inputs.nix-firefox-addons.overlays.default
+  ];
+
   i18n.defaultLocale = "en_US.UTF-8";
   i18n.supportedLocales = [
     "en_US.UTF-8/UTF-8"

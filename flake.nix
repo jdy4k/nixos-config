@@ -18,10 +18,11 @@
     nixvim = {
       url = "github:nix-community/nixvim/nixos-25.11";
     };
-    hyprspace-patch = {
-      url = "path:./assets/hyprspace-patch";
-      inputs.nixpkgs.follows = "nixpkgs";
+    potatofox = {
+      url = "git+https://codeberg.org/da157/PotatoFox";
+      flake = false;
     };
+    nix-firefox-addons.url = "github:osipog/nix-firefox-addons";
   };
 
   outputs =
