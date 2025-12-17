@@ -9,13 +9,14 @@
     enable = true;
     enableFishIntegration = true;
   };
-  
+
   programs.fish = {
     enable = true;
     interactiveShellInit = ''
       set fish_greeting
       bind alt-f "fzf-file-widget ./"
       bind alt-r "fzf-history-widget"
+      starship init fish | source
     '';
     plugins = [
       {name = "fzf-fish"; src = pkgs.fishPlugins.fzf-fish;}

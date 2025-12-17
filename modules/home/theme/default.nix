@@ -3,5 +3,6 @@
   imports =
        [ (import ./gtk.nix) ]
        ++ [ (import ./qt.nix) ]
-       ++ [ (import ./cursor.nix) ];
+       ++ [ (import ./cursor.nix) ]
+       ++ [ (import ./starship.nix) ];
 }
