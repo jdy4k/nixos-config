@@ -11,9 +11,11 @@
 3. Hyprland config
     - Screenshot
     - Quickshell for screenshot
-4. Make role nix files
+4. Make role and extra nix files
 5. Hyprland resizing
     - Mouse 2 resize & and keybinds
 6. Replace wofi and dunst with quickshell
+7. Syncthing
+8. Plymouth
 
 ?. Make installer script

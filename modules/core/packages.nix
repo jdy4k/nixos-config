@@ -5,9 +5,7 @@
     xdg-desktop-portal-gtk
     gnome-keyring
     alsa-utils
-		cmake
-		gnumake
-		meson
-		ninja
+    gcc
+    git
   ];
 }

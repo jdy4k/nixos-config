@@ -156,8 +156,6 @@
         "$mainMod SHIFT, 0, movetoworkspace, 10"
 				# "$mainMod, TAB, exec, overview-wrapper.sh"
 
-        " ,XF86AudioRaiseVolume, exec, wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 1%+ && eww update volume-json='amixer sget Master | jc --amixer'"
-        " ,XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 1%- && eww update volume-json='amixer sget Master | jc --amixer'"
         " ,XF86AudioMute, exec,        wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle && eww update volume-json='amixer sget Master | jc --amixer'"
         " ,XF86AudioMicMute, exec,     wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"
         ", XF86AudioNext, exec, playerctl next"
@@ -169,6 +167,11 @@
         "$mainMod, XF86AudioPlay, exec, mpc toggle"
         "$mainMod, XF86AudioPrev, exec, mpc prev"
       ];
+
+        binde = [
+          " ,XF86AudioRaiseVolume, exec, wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 1%+ && eww update volume-json='amixer sget Master | jc --amixer'"
+          " ,XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 1%- && eww update volume-json='amixer sget Master | jc --amixer'"
+        ];
 
       bindm = [
         "$mainMod, mouse:272, movewindow"

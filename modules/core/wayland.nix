@@ -11,6 +11,13 @@
     withUWSM = true;
   };
 
+  environment.systemPackages = with pkgs; [
+    grim
+    slurp
+    wl-clipboard
+    direnv
+  ];
+
   security.rtkit.enable = true;
   xdg.autostart.enable = true;
 

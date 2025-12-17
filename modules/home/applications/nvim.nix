@@ -5,6 +5,10 @@
   ];
 
   home.shellAliases.v = "nvim";
+  home.packages = with pkgs; [
+    ripgrep
+    fzf
+  ];
 
   programs.nixvim = {
     enable = true;
@@ -16,21 +20,53 @@
     plugins = {
       treesitter = {
         enable = true;
-				autoLoad = true;
+      };
+      treesitter-context = {
+        enable = true;
+      };
+      treesitter-refactor = {
+        enable = true;
       };
       web-devicons.enable = true;
       cursorline.enable = true;
       smear-cursor.enable = true;
       neoscroll.enable = true;
       telescope.enable = true;
-      undotree.enable = true;
+      lualine = {
+        enable = true;
+        settings = {
+          options = {
+            theme = "nord";
+          };
+        };
+      };
+      supermaven = { 
+        enable = true;
+        settings = {
+          keymaps = {
+            accept_suggestion = "<A-tab>";
+          };
+        };
+      };
     };
+
+    keymaps = [
+      {
+        action = "<cmd>Telescope find_files<CR>";
+        key = "<A-f>";
+      }
+      {
+        action = "<cmd>Telescope live_grep<CR>";
+        key = "<A-g>";
+      }
+    ];
 
     opts = {
       number = true;
       tabstop = 2;
       shiftwidth = 2;
       expandtab = true;
+      syntax = "on";
     };
 
     highlight = {
