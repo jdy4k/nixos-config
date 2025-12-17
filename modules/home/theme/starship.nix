@@ -7,10 +7,11 @@
       add_newline = false;
       direnv.disabled = false;
       continuation_prompt = "[.](bright-black) ";
+      format = "[$username](bold blue) $directory$all$character";
 
       character = {
-        success_symbol = "[>](bold green)";
-        error_symbol = "[x](bold red)";
+        success_symbol = "[>](bold white)";
+        error_symbol = "[>](bold red)";
         vimcmd_symbol = "[<](bold green)";
         vimcmd_visual_symbol = "[<](bold yellow)";
         vimcmd_replace_symbol = "[<](bold purple)";
@@ -100,6 +101,7 @@
 
       directory = {
         read_only = " ro";
+        format = "[$path](white bold) ";
       };
 
       docker_context = {
@@ -175,6 +177,8 @@
 
       hostname = {
         ssh_symbol = "ssh ";
+        disabled = false;
+        format = "@$hostname";
       };
 
       java = {
@@ -414,6 +418,13 @@
 
       zig = {
         symbol = "zig ";
+      };
+
+      username = {
+        show_always = true;
+        format = "$user";
+        style_user = "bold blue";
+        style_root = "bold red";
       };
     };
   };
