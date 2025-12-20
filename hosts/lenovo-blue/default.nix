@@ -16,11 +16,6 @@
   networking.hostName = "lenovo-blue";
   time.timeZone = "America/New_York";
 
-  hardware.nvidia = {
-    open = false;
-  };
-  services.xserver.videoDrivers = [ "nvidia" ];
-
   boot = {
     loader = {
     	systemd-boot.enable = true;
