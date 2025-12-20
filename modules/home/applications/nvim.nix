@@ -18,20 +18,17 @@
     vimAlias = true;
 
     plugins = {
+
       treesitter = {
         enable = true;
       };
-      treesitter-context = {
-        enable = true;
-      };
-      treesitter-refactor = {
-        enable = true;
-      };
+
       web-devicons.enable = true;
       cursorline.enable = true;
       smear-cursor.enable = true;
       neoscroll.enable = true;
       telescope.enable = true;
+
       lualine = {
         enable = true;
         settings = {
@@ -40,6 +37,7 @@
           };
         };
       };
+
       supermaven = { 
         enable = true;
         settings = {
@@ -48,6 +46,7 @@
           };
         };
       };
+
     };
 
     keymaps = [
