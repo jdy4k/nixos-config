@@ -8,7 +8,7 @@
     backupFileExtension = "bak";
     extraSpecialArgs = { inherit inputs username host; };
     users.${username} = {
-      imports = [ ./../home ];
+      imports = [ ./../home-manager ];
       home = {
         username = "${username}";
         homeDirectory = "/home/${username}";

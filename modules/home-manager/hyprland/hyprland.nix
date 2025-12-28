@@ -17,7 +17,6 @@
     xwayland = {
       enable = true;
     };
-    withUWSM = true;
-    systemd.enable = true;
+    systemd.enable = false;
   };
 }
