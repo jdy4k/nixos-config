@@ -1,27 +1,17 @@
-{
-  inputs,
-  pkgs,
-  config,
-  lib,
-  ...
-}:
+{ inputs, pkgs, config, lib, ... }:
 {
   imports = [
     ./hardware-configuration.nix
-    ./roles/nvidia.nix
-    ./../../modules/core
-    ./../../modules/extra/coding.nix
-    ./../../modules/extra/gaming.nix
+    ./../../roles/nvidia.nix
+    
+    ./../../modules/nixos
+    ./../../modules/nixos/wayland
+    ./../../modules/nixos/extra/fcitx5.nix
+    ./../../modules/nixos/extra/mpd.nix
+
+    ./../../modules/home-manager
   ];
 
   networking.hostName = "lenovo-blue";
   time.timeZone = "America/New_York";
-
-  boot = {
-    loader = {
-    	systemd-boot.enable = true;
-	efi.canTouchEfiVariables = true;
-    };
-    kernelPackages = pkgs.linuxPackages_latest;
-  };
 }

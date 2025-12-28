@@ -6,10 +6,10 @@
 }: let
 
   bg = pkgs.runCommand "bg.jpg" { } ''
-    cp ${./../../assets/sddm-bg.jpg} $out
+    cp ${./../../../assets/sddm-bg.jpg} $out
   '';
 
-  avatar = "${./../../assets/avatar.jpg}";
+  avatar = "${./../../../assets/avatar.jpg}";
   
   sddm-theme = inputs.silentSDDM.packages.${pkgs.system}.default.override {
     theme = "default";

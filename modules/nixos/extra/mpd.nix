@@ -1,14 +1,11 @@
+{ username, config, pkgs, ... }:
 {
-  username,
-  config,
-  pkgs,
-  ...
-}:
-{
+
   environment.systemPackages = with pkgs; [
     mpc
     mpdris2
     rmpc
+    alsa-utils
   ];
 
   services.mpd = {

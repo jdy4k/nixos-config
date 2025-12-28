@@ -16,11 +16,19 @@
     nixpkgs.useGlobalPackages = true;
     viAlias = true;
     vimAlias = true;
+    colorschemes.catppuccin = {
+      enable = true;
+    };
 
     plugins = {
 
       treesitter = {
         enable = true;
+        settings = {
+          highlight.enable = true;
+          indent.enable = true;
+          folding.enable = true;
+        };
       };
 
       web-devicons.enable = true;
@@ -28,6 +36,13 @@
       smear-cursor.enable = true;
       neoscroll.enable = true;
       telescope.enable = true;
+      transparent.enable = true;
+      rainbow-delimiters.enable = true;
+      mini-pairs.enable = true;
+
+      #lightline = {
+      #  enable = true;
+      #};
 
       lualine = {
         enable = true;
@@ -66,36 +81,6 @@
       shiftwidth = 2;
       expandtab = true;
       syntax = "on";
-    };
-
-    highlight = {
-      Normal = {
-        bg = "none";
-      };
-      NormalFloat = {
-        bg = "none";
-      };
-      NormalNC = {
-        bg = "none";
-      };
-      WinSeparator = {
-        bg = "none";
-      };
-      WinBar = {
-        bg = "none";
-      };
-      SignColumn = {
-        bg = "none";
-      };
-      StatusLine = {
-        bg = "none";
-      };
-      Pmenu = {
-        bg = "none";
-      };
-      CursorLine = {
-        bg = "none";
-      };
     };
   };
 }

@@ -1,5 +1,5 @@
 {
-  description = "liv's NixOS configuration";
+  description = "jdy4k's nixOs configuration";
 
   inputs = {
     nixpkgs.url = "nixpkgs/nixos-25.11";
