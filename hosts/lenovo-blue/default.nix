@@ -32,8 +32,7 @@
     };
   };
 
-  #programs.fish.enable = true;
-  programs.bash.enable = true;
+  programs.fish.enable = true;
   users.users.${username} = {
     isNormalUser = true;
     description = "${username}";
