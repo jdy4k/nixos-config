@@ -28,4 +28,12 @@
     XDG_RUNTIME_DIR = "/run/user/1000";
   };
 
+  programs.ncmpcpp = {
+    enable = true;
+    mpdMusicDir = "~/Music/";
+    settings = {
+      lyrics_directory = "~/Music/";
+    };
+  };
+
 }

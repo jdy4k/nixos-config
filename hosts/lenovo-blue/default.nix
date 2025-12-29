@@ -9,8 +9,8 @@
     
     ./../../modules/nixos
     ./../../modules/nixos/wayland
-    ./../../modules/nixos/extra/fcitx5.nix
-    ./../../modules/nixos/extra/mpd.nix
+    #./../../modules/nixos/extra/fcitx5.nix
+    #./../../modules/nixos/extra/mpd.nix
 
     inputs.home-manager.nixosModules.home-manager
   ];
@@ -19,7 +19,10 @@
     useUserPackages = true;
     useGlobalPkgs = true;
     backupFileExtension = "bak";
-    extraSpecialArgs = { inherit inputs username host; };
+    extraSpecialArgs = {
+
+      inherit inputs username host; 
+    };
     users.${username} = {
       imports = [ ./../../modules/home-manager ];
       home = {
