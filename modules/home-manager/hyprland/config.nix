@@ -40,7 +40,7 @@
 
       general = {
         "$mainMod" = "SUPER";
-        "$terminal" = "kitty -1";
+        "$terminal" = "alacritty";
         "$menu" = "flock --nonblock /tmp/.wofi.lock wofi --show drun";
         layout = "dwindle";
         gaps_in = 5;

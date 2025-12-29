@@ -18,5 +18,7 @@
     imagemagick
     moreutils
     playerctl
+
+    alacritty
   ];
 }

@@ -32,7 +32,8 @@
     };
   };
 
-  programs.fish.enable = true;
+  #programs.fish.enable = true;
+  programs.bash.enable = true;
   users.users.${username} = {
     isNormalUser = true;
     description = "${username}";
@@ -40,7 +41,7 @@
       "networkmanager"
       "wheel"
     ];
-    shell = pkgs.fish;
+    shell = pkgs.bash;
   };
   nix.settings.allowed-users = [ "${username}" ];
 }
