@@ -9,14 +9,16 @@ in
 
   ### NIXOS ###
 
-  imports = [
-    ./hardware-configuration.nix
-    ./../../modules/nixos
+  imports = 
+    [ ./hardware-configuration.nix
+      ./../../modules/nixos    
+      inputs.home-manager.nixosModules.home-manager # Enables section below
+    ]
+ ++ (if myconfig.roles.nvidia 
+      then [ (import ./../../roles/nvidia.nix) ] else [ ])
+ ++ (if myconfig.roles.amd 
+      then [ (import ./../../roles/amd.nix) ] else [ ])
 
-    ./../../roles/nvidia.nix    
-    
-    inputs.home-manager.nixosModules.home-manager # Enables section below
-  ];
 
   ### HOME MANAGER ###
 
