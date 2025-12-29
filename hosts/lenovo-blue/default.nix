@@ -9,8 +9,6 @@
     
     ./../../modules/nixos
     ./../../modules/nixos/wayland
-    #./../../modules/nixos/extra/fcitx5.nix
-    #./../../modules/nixos/extra/mpd.nix
 
     inputs.home-manager.nixosModules.home-manager
   ];

@@ -1,7 +1,7 @@
 { username, config, pkgs, ... }:
 {
 
-  environment.systemPackages = with pkgs; [
+  home.packages = with pkgs; [
     mpc
     mpdris2
     rmpc
@@ -21,13 +21,8 @@
         name "pipewire"
       }
     '';
-    user = "${username}";
   };
   
-  systemd.services.mpd.environment = {
-    XDG_RUNTIME_DIR = "/run/user/1000";
-  };
-
   programs.ncmpcpp = {
     enable = true;
     mpdMusicDir = "~/Music/";

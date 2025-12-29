@@ -9,13 +9,13 @@
         fcitx5-gtk
       ];
     };
-    supportedLocales = [                
+    extraLocales = [                
       "en_US.UTF-8/UTF-8"                    
       "ja_JP.UTF-8/UTF-8"                    
     ];
   };
 
-    environment.sessionVariables = rec {
+  home.sessionVariables = rec {
     QT_IM_MODULE = "fcitx";
     XMODIFIERS = "@im=fcitx";
   };
