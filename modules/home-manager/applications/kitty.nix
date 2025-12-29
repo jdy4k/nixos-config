@@ -10,7 +10,7 @@
 
       foreground = "#dddddd";
       background = "#111111";
-      window_padding_width = "7 10";
+      window_padding_width = "8";
       background_opacity = "0.7";
 
       font_family = "FiraCode Nerd Font";

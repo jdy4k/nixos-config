@@ -16,7 +16,7 @@
     nixpkgs.useGlobalPackages = true;
     viAlias = true;
     vimAlias = true;
-    colorschemes.catppuccin = {
+    colorschemes.tokyonight = {
       enable = true;
     };
 
