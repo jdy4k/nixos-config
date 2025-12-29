@@ -11,11 +11,10 @@ in
 
   imports = [
     ./hardware-configuration.nix
-    ./../../roles/nvidia.nix
-    
     ./../../modules/nixos
-    ./../../modules/nixos/wayland
 
+    ./../../roles/nvidia.nix    
+    
     inputs.home-manager.nixosModules.home-manager # Enables section below
   ];
 
