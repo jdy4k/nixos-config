@@ -2,6 +2,7 @@
 {
   imports = [ (import ./network.nix) ]
     ++ [ (import ./pipewire.nix) ]
+    ++ [ (import ./silent-sddm.nix) ]
     ++ [ (import ./system.nix) ]
     ++ [ (import ./fonts.nix) ]
     ++ [ (import ./wayland.nix) ]
