@@ -34,24 +34,33 @@
     let
       username = "mg";
       myconfig = {
-        shell = {
-          deault = "fish";
-          fish = true;
-          zsh = true;
-        };
         timeZone = "America/New_York";
-        compositor = "wayland";
+        
+        roles ={
+          laptop = true;
+          amd = false;
+          nvidia = true;
+        };
+
+        shell = {
+          default = "fish";
+          fish.enable = true;
+          zsh.enable = true;
+        };
+
         desktopManager = {
-          hyprland = true;
-          theme = "macO_esque";
+          hyprland = {
+            enabled = true;
+            theme = "macO_esque";
+          };
         };
 
         displayManager = {
-          sddm = true;
-          theme = "slient-sddm";
+          sddm = {
+            enable = true;
+            theme = "slient-sddm";
+          };
         };
-
-        japaneseSupport = true;
 
         monitors = {
           primary = {
@@ -97,6 +106,12 @@
               scale = 0;
             };
           };
+        };
+
+        extra = {
+          art.enable = false;
+          japanese.enable = true;
+          mpd.enable = true;
         };
       };
       system = "x86_64-linux";

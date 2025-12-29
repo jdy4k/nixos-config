@@ -25,7 +25,7 @@
     backupFileExtension = "bak";
     extraSpecialArgs = {
 
-      inherit inputs username host; 
+      inherit inputs username host myconfig; 
     };
     users.${username} = {
       imports = [ ./../../modules/home-manager ];
@@ -41,9 +41,10 @@
   ### USERS ###
 
   # Main user
-  programs.fish.enable = if (myconfig.shell == "fish") then true else false;
-  programs.zsh.enable = if (myconfig.shell == "zsh") then true else false;
-  #programs.bash.enable = true;
+  programs.fish.enable = 
+    if myconfig.shell.fish.enable then true else false;
+  programs.zsh.enable = 
+    if myconfig.shell.zsh.enable then true else false;
 
   users.users.${username} = {
     isNormalUser = true;

@@ -1,5 +1,7 @@
-{ inputs, ... }:
+{ inputs, myconfig, ... }:
 {
   imports =
-       [ (import ./mpd.nix) ];
+       []
+    ++ (if myconfig.extra.japanese.enable then [ ./japanese.nix ] else [])
+    ++ (if myconfig.extra.mpd.enable then [ ./mpd ] else []);
 }
