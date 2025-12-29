@@ -1,25 +1,30 @@
 {
   pkgs,
   host,
+  lib,
   username,
+  myconfig,
   ...
 }: 
 {
   wayland.windowManager.hyprland = {
     settings = {
 
-      #source = "~/nixos-config/modules/home/hyprland/displays.conf";
-
+      # monitors
       "debug:disable_scale_checks" = true;
-      monitor =
-        #if (host == "sakura") then
-        #  "eDP-1, 2256x1504@60, 0x0, 1.0"
-        #else if (host == "zinnia") then
-        #  "eDP-1, 1920x1080@60, 0x0, 1.0"
-        #else if (host == "imilia") then
-        #  "eDP-1, 1920x1080@60, 0x0, 1.0"
-        #else
-          ", preferred, auto, auto";
+      monitor = lib.concatStrings [ 
+        "${myconfig.monitors.primary.name},"
+
+        "${myconfig.monitors.primary.resolution.width}"
+        "x"
+        "${myconfig.monitors.primary.resolution.height}"
+        "@"
+        "${myconfig.monitors.primary.refreshRate},"
+
+        "0x0,"
+
+        "${myconfig.monitors.primary.scale}"
+      ];
 
       # autostart
       exec-once = [

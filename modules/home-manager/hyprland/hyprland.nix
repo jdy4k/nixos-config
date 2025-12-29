@@ -1,4 +1,4 @@
-{ inputs, pkgs, config, ... }:
+{ inputs, pkgs, config, myconfig, ... }:
 {
   home.sessionVariables = {
     DISABLE_QT5_COMPAT = "0";

@@ -1,12 +1,15 @@
-{ pkgs, input, ... }:
+{ pkgs, input, myconfig, ... }:
+let
+  bg = ./../../../../assets/hyprpaper-bg.jpg;
+in
 {
   services.hyprpaper = {
     enable = true;
     settings = {
       preload =
-        [ "${./../../../../assets/hyprpaper-bg.jpg}" ];
+        [ "${bg}" ];
       wallpaper = [
-        "eDP-1, ${./../../../../assets/hyprpaper-bg.jpg}"
+        "${myconfig.monitors.primary.name}, ${bg}"
       ];
     };
   };

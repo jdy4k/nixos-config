@@ -1,7 +1,11 @@
-{ inputs, pkgs, config, lib, username, host, ... }:
+{ inputs, pkgs, config, lib, username, host, myconfig, ... }:
 {
+
+  ### HOST VARS ###
   networking.hostName = "lenovo-blue";
-  time.timeZone = "America/New_York";
+  time.timeZone = "${myconfig.timeZone}";
+
+  ### NIXOS ###
 
   imports = [
     ./hardware-configuration.nix
@@ -10,8 +14,10 @@
     ./../../modules/nixos
     ./../../modules/nixos/wayland
 
-    inputs.home-manager.nixosModules.home-manager
+    inputs.home-manager.nixosModules.home-manager # Enables section below
   ];
+
+  ### HOME MANAGER ###
 
   home-manager = {
     useUserPackages = true;
@@ -32,7 +38,13 @@
     };
   };
 
-  programs.fish.enable = true;
+  ### USERS ###
+
+  # Main user
+  programs.fish.enable = if (myconfig.shell == "fish") then true else false;
+  programs.zsh.enable = if (myconfig.shell == "zsh") then true else false;
+  #programs.bash.enable = true;
+
   users.users.${username} = {
     isNormalUser = true;
     description = "${username}";
@@ -40,7 +52,18 @@
       "networkmanager"
       "wheel"
     ];
-    shell = pkgs.fish;
+    shell = if (myconfig.shell.default == "fish") then 
+              pkgs.fish
+            else if (myconfig.shell.default == "zsh") then
+              pkgs.zsh
+            else if (myconfig.shell.default == "bash") then
+              pkgs.bash
+            else
+              pkgs.bash;
   };
   nix.settings.allowed-users = [ "${username}" ];
+
+  # Additional users
+  # ...
+
 }
