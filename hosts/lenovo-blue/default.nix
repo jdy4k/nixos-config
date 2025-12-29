@@ -17,7 +17,7 @@ in
  ++ (if myconfig.roles.nvidia 
       then [ (import ./../../roles/nvidia.nix) ] else [ ])
  ++ (if myconfig.roles.amd 
-      then [ (import ./../../roles/amd.nix) ] else [ ])
+      then [ (import ./../../roles/amd.nix) ] else [ ]);
 
 
   ### HOME MANAGER ###
