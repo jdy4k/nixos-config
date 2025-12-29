@@ -12,7 +12,7 @@ in
   imports = 
     [ ./hardware-configuration.nix
       ./../../modules/nixos    
-      inputs.home-manager.nixosModules.home-manager # Enables section below
+      inputs.home-manager.nixosModules.home-manager
     ]
  ++ (if myconfig.roles.nvidia 
       then [ (import ./../../roles/nvidia.nix) ] else [ ])

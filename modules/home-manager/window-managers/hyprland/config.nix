@@ -159,7 +159,6 @@
         "$mainMod SHIFT, 8, movetoworkspace, 8"
         "$mainMod SHIFT, 9, movetoworkspace, 9"
         "$mainMod SHIFT, 0, movetoworkspace, 10"
-				# "$mainMod, TAB, exec, overview-wrapper.sh"
 
         " ,XF86AudioMute, exec,        wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle && eww update volume-json='amixer sget Master | jc --amixer'"
         " ,XF86AudioMicMute, exec,     wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"

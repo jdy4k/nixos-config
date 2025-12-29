@@ -1,7 +1,7 @@
 { inputs, ... }:
 {
   imports =
-       [ (import ./hyprland) ]
+       [ (import ./window-managers) ]
     ++ [ (import ./applications) ]
     ++ [ (import ./theme) ]
     ++ [ (import ./shells) ]
