@@ -40,7 +40,7 @@
       "networkmanager"
       "wheel"
     ];
-    shell = pkgs.bash;
+    shell = pkgs.fish;
   };
   nix.settings.allowed-users = [ "${username}" ];
 }
