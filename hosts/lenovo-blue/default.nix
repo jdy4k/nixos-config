@@ -1,6 +1,8 @@
-{ inputs, pkgs, config, lib, username, host, myconfig, ... }:
+{ inputs, pkgs, config, lib, username, host, ... }:
+let
+  myconfig = import ./config.nix;
+in
 {
-
   ### HOST VARS ###
   networking.hostName = "lenovo-blue";
   time.timeZone = "${myconfig.timeZone}";
@@ -24,8 +26,8 @@
     useGlobalPkgs = true;
     backupFileExtension = "bak";
     extraSpecialArgs = {
-
-      inherit inputs username host myconfig; 
+      myconfig = myconfig;
+      inherit inputs username host; 
     };
     users.${username} = {
       imports = [ ./../../modules/home-manager ];
