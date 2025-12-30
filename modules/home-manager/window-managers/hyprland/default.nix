@@ -2,8 +2,7 @@
 {
   imports =
     [ (import ./config.nix) ]
-    ++ [ (import ./hypr) ]
-    ++ [ (import ./ui) ];
+    ++ [ (import ./hypr) ];
 
   home.sessionVariables = {
     DISABLE_QT5_COMPAT = "0";

@@ -3,6 +3,7 @@
   imports =
        [ (import ./window-managers) ]
     ++ [ (import ./applications) ]
+    ++ [ (import ./widgets) ]
     ++ [ (import ./theme) ]
     ++ [ (import ./shells) ]
     ++ [ (import ./extra) ]
