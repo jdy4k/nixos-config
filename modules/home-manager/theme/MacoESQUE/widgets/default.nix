@@ -2,6 +2,6 @@
 {
   imports =
     [ (import ./wofi.nix) ]
-    #    ++ [ (import ./quickshell) ]
+    ++ [ (import ./quickshell) ]
     ++ [ (import ./dunst.nix) ];
 }

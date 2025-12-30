@@ -28,7 +28,8 @@
       inherit inputs username host myconfig; 
     };
     users.${username} = {
-      imports = [ ./../../modules/home-manager ];
+      imports = [ ./../../modules/home-manager ]
+             ++ [ ./../../modules/packs ];
       home = {
         username = "${username}";
         homeDirectory = "/home/${username}";

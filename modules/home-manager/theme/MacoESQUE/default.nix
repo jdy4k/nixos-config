@@ -5,7 +5,7 @@
        ++ [ (import ./qt.nix) ]
        ++ [ (import ./cursor.nix) ]
 
-       ++ [ (import ./widgets.nix) ]
-       ++ [ (import ./applications.nix) ]
-       ++ [ (import ./window-managers.nix) ];
+       ++ [ (import ./widgets) ]
+       ++ [ (import ./applications) ]
+       ++ [ (import ./window-managers) ];
 }

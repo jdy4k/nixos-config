@@ -26,8 +26,8 @@
   };
 
   theme = {
-    # MacoESQUE and (TBA) TrueAMOLED
-    hyprland = "MacoESQUE";
+    # MacoESQUE and (TBA) TrueAMOLED; 
+    MacoESQUE.enable = true;
     starship.enable = true;
   };
   
