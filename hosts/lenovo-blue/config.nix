@@ -89,7 +89,7 @@
           width = "0";
           height = "0";
         };
-;
+
         refreshRate = 0;
         scale = 0;
       };

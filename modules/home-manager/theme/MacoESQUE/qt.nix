@@ -12,7 +12,7 @@
   ];
 
   # Configure Kvantum to use OrchisDark theme
-  xdg.configFile."Kvantum/Orchis".source = ./../../../assets/qt-themes/Orchis;
+  xdg.configFile."Kvantum/Orchis".source = ./../../../../assets/qt-themes/Orchis;
 
   xdg.configFile."Kvantum/kvantum.kvconfig".text = ''
     [General]
