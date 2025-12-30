@@ -13,7 +13,7 @@
 
       background = [
         {
-          path = "${./../../../../assets/hyprlock-bg.jpg}";
+          path = "${./../../../../../assets/hyprlock-bg.jpg}";
           blur_passes = 2;
           contrast = 1;
           brightness = 0.5;

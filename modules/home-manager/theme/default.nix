@@ -1,8 +1,7 @@
-{ pkgs, config, ... }:
+{ pkgs, config, myconfig, ... }:
 {
   imports =
-       [ (import ./gtk.nix) ]
-       ++ [ (import ./qt.nix) ]
-       ++ [ (import ./starship.nix) ]
-       ++ [ (import ./cursor.nix) ];
+       [ (import ./MacoESQUE) ]
+    ++ (if myconfig.theme.startship.enable
+         then [ (import ./startship.nix) ] else [ ]);
 }

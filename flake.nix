@@ -48,6 +48,7 @@
           ];
           specialArgs = {
             host = "lenovo-blue";
+            myconfig = (import ./hosts/lenovo-blue/config.nix);
             inherit self inputs username;
           };
         };

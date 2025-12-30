@@ -1,6 +1,6 @@
 { pkgs, input, myconfig, ... }:
 let
-  bg = ./../../../../assets/hyprpaper-bg.jpg;
+  bg = ./../../../../../assets/hyprpaper-bg.jpg;
 in
 {
   services.hyprpaper = {

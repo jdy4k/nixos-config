@@ -1,7 +1,7 @@
-{ inputs, ... }:
+{ inputs, myconfig, ... }:
 {
   imports =
       [ ] 
-   ++ (if myconfig.desktopManager.enable
+   ++ (if myconfig.desktopManager.hyprland.enable
         then [ (import ./hyprland) ] else [ ]);
 }

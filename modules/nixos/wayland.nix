@@ -1,4 +1,4 @@
-{ username, pkgs, ... }:
+{ username, pkgs, myconfig, ... }:
 {
   services = {
     libinput = {
@@ -13,8 +13,14 @@
     direnv
   ];
 
-  programs.hyprland = {
-    enable = true;
-    withUWSM = true;
-  };
+  programs.hyprland = 
+    if myconfig.desktopManager.hyprland.enable then
+      {
+        enable = true;
+        withUWSM = true;
+      }
+    else
+      {
+        enable = false; 
+      };
 }

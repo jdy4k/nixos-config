@@ -1,7 +1,4 @@
-{ inputs, pkgs, config, lib, username, host, ... }:
-let
-  myconfig = import ./config.nix;
-in
+{ inputs, pkgs, config, lib, username, host, myconfig, ... }:
 {
   ### HOST VARS ###
   networking.hostName = "lenovo-blue";
@@ -10,14 +7,15 @@ in
   ### NIXOS ###
 
   imports = 
-    [ ./hardware-configuration.nix
-      ./../../modules/nixos    
-      inputs.home-manager.nixosModules.home-manager
-    ]
+    [ (import ./hardware-configuration.nix) ]
+ ++ [ (import ./../../modules/nixos { inherit myconfig; }) ] 
+ ++ [ inputs.home-manager.nixosModules.home-manager ]
  ++ (if myconfig.roles.nvidia 
-      then [ (import ./../../roles/nvidia.nix) ] else [ ])
+      then [ (import ./../../roles/nvidia.nix) ] 
+      else [ ])
  ++ (if myconfig.roles.amd 
-      then [ (import ./../../roles/amd.nix) ] else [ ]);
+      then [ (import ./../../roles/amd.nix) ] 
+      else [ ]);
 
 
   ### HOME MANAGER ###
@@ -27,8 +25,7 @@ in
     useGlobalPkgs = true;
     backupFileExtension = "bak";
     extraSpecialArgs = {
-      myconfig = myconfig;
-      inherit inputs username host; 
+      inherit inputs username host myconfig; 
     };
     users.${username} = {
       imports = [ ./../../modules/home-manager ];
@@ -44,6 +41,7 @@ in
   ### USERS ###
 
   # Main user
+  programs.bash.enable = true;
   programs.fish.enable = 
     if myconfig.shell.fish.enable then true else false;
   programs.zsh.enable = 

@@ -8,23 +8,32 @@
   };
   
   shell = {
+    # bash is always enabled
     default = "fish";
     fish.enable = true;
-    zsh.enable = true;
+    zsh.enable = false;
   };
   
   desktopManager = {
     hyprland = {
-      enabled = true;
-      theme = "macO_esque";
+      enable = true;
     };
+    # i3, niri, KDE
   };
   
   displayManager = {
     sddm = {
       enable = true;
-      theme = "slient-sddm";
+      theme = "silent-sddm";
     };
+    ### Some TTY display manager...
+  };
+
+  theme = {
+    # MacoESQUE and (TBA) TrueAMOLED
+    hyprland = "MacoESQUE";
+    #i3 = "TrueAMOLED";
+    starship.enable = true;
   };
   
   monitors = {
@@ -40,16 +49,22 @@
   
     left = {
       center = {
-        enabled = false;
+        enable = false;
         name = "null";
-        resolution = "null";
+        resolution = {
+          width = "0";
+          height = "0";
+        };
         refreshRate = 0;
         scale = 0;
       };
       bottom = {
-        enabled = false;
+        enable = false;
         name = "null";
-        resolution = "null";
+        resolution = {
+          width = "0";
+          height = "0";
+        };
         refreshRate = 0;
         scale = 0;
       };
@@ -57,16 +72,24 @@
   
     right = {
       center = {
-        enabled = false;
+        enable = false;
         name = "null";
-        resolution = "null";
+        resolution = {
+          width = "0";
+          height = "0";
+        };
+
         refreshRate = 0;
         scale = 0;
       };
       bottom = {
-        enabled = false;
+        enable = false;
         name = "null";
-        resolution = "null";
+        resolution = {
+          width = "0";
+          height = "0";
+        };
+;
         refreshRate = 0;
         scale = 0;
       };
