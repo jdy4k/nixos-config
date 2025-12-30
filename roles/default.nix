@@ -1,10 +1,10 @@
 { inputs, myconfig, ... }:
 {
   imports =
-     (if myconfig.role.nvidia.enable
+     (if myconfig.roles.nvidia.enable
         then [ (import ./nvidia.nix) ] else [ ])
-  ++ (if myconfig.role.amd.enable
+  ++ (if myconfig.roles.amd.enable
         then [ (import ./amd.nix) ] else [ ])
-  ++ (if myconfig.role.laptop.enable
+  ++ (if myconfig.roles.laptop.enable
         then [ (import ./laptop.nix) ] else [ ]);
 }

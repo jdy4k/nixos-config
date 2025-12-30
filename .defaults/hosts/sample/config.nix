@@ -2,13 +2,13 @@
   roles ={
     laptop.enable = false;
     amd.enable = false;
-    nvidia.enable = true;
+    nvidia.enable = false;
   };
   
   shell = {
     # bash is always enabled
-    default = "fish";
-    fish.enable = true;
+    default = "bash";
+    fish.enable = false;
     zsh.enable = false;
   };
   
@@ -29,31 +29,31 @@
   
   displayManager = {
     sddm = {
-      enable = true;
-      theme = "silent-sddm";
+      enable = false;
+      theme = "null";
     };
   };
 
   theme = {
     # MacoESQUE and (TBA) TrueAMOLED; 
-    MacoESQUE.enable = true;
-    starship.enable = true;
+    MacoESQUE.enable = false;
+    starship.enable = false;
   };
   
   extra = {
     art.enable = false;
-    japanese.enable = true;
-    mpd.enable = true;
+    japanese.enable = false;
+    mpd.enable = false;
   };
 
   monitors = {
     primary = {
-      name = "eDP-1";
+      name = "null";
       resolution = {
-        width = "1920";
-        height = "1080";
+        width = "null";
+        height = "null";
       };
-      refreshRate = "60";
+      refreshRate = "30";
       scale = "1";
     };
   
@@ -65,8 +65,8 @@
           width = "0";
           height = "0";
         };
-        refreshRate = 0;
-        scale = 0;
+        refreshRate = "30";
+        scale = "1";
       };
       bottom = {
         enable = false;
@@ -75,8 +75,8 @@
           width = "0";
           height = "0";
         };
-        refreshRate = 0;
-        scale = 0;
+        refreshRate = "30";
+        scale = "1";
       };
     };
   
@@ -89,8 +89,8 @@
           height = "0";
         };
 
-        refreshRate = 0;
-        scale = 0;
+        refreshRate = "30";
+        scale = "1";
       };
       bottom = {
         enable = false;
@@ -100,8 +100,8 @@
           height = "0";
         };
 
-        refreshRate = 0;
-        scale = 0;
+        refreshRate = "30";
+        scale = "1";
       };
     };
   };
