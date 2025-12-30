@@ -1,6 +1,4 @@
 {
-  timeZone = "America/New_York";
-  
   roles ={
     laptop = true;
     amd = false;
@@ -18,7 +16,6 @@
     hyprland = {
       enable = true;
     };
-    # i3, niri, KDE
   };
   
   displayManager = {
@@ -26,16 +23,20 @@
       enable = true;
       theme = "silent-sddm";
     };
-    ### Some TTY display manager...
   };
 
   theme = {
     # MacoESQUE and (TBA) TrueAMOLED
     hyprland = "MacoESQUE";
-    #i3 = "TrueAMOLED";
     starship.enable = true;
   };
   
+  extra = {
+    art.enable = false;
+    japanese.enable = true;
+    mpd.enable = true;
+  };
+
   monitors = {
     primary = {
       name = "eDP-1";
@@ -94,12 +95,6 @@
         scale = 0;
       };
     };
-  };
-  
-  extra = {
-    art.enable = false;
-    japanese.enable = true;
-    mpd.enable = true;
   };
   
 }

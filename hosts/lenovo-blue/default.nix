@@ -1,8 +1,8 @@
-{ inputs, pkgs, config, lib, username, host, myconfig, ... }:
+{ inputs, pkgs, config, lib, username, host, tz, myconfig, ... }:
 {
   ### HOST VARS ###
   networking.hostName = "lenovo-blue";
-  time.timeZone = "${myconfig.timeZone}";
+  time.timeZone = "${tz}";
 
   ### NIXOS ###
 

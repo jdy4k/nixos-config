@@ -16,12 +16,7 @@
       set fish_greeting
       bind alt-f "fzf-file-widget ./"
       bind alt-r "fzf-history-widget"
-      starship init fish | source
-
-      function starship_transient_prompt_func
-	      tput cuu1
-	      starship module character
-      end
+      set -g fish_prompt_invoke_commands 0
 
       function prompt_newline --on-event fish_postexec
       	echo

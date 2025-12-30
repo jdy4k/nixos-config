@@ -34,6 +34,7 @@
     let
       username = "mg"; 
       system = "x86_64-linux";
+      tz = "America/New_York";
       pkgs = import nixpkgs {
         inherit system;
       };
@@ -49,7 +50,7 @@
           specialArgs = {
             host = "lenovo-blue";
             myconfig = (import ./hosts/lenovo-blue/config.nix);
-            inherit self inputs username;
+            inherit self inputs username tz;
           };
         };
       };
