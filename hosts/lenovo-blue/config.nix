@@ -1,8 +1,8 @@
 {
   roles ={
-    laptop = true;
-    amd = false;
-    nvidia = true;
+    laptop.enable = true;
+    amd.enable = false;
+    nvidia.enable = true;
   };
   
   shell = {

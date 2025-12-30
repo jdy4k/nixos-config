@@ -9,14 +9,8 @@
   imports = 
     [ (import ./hardware-configuration.nix) ]
  ++ [ (import ./../../modules/nixos { inherit myconfig; }) ] 
- ++ [ inputs.home-manager.nixosModules.home-manager ]
- ++ (if myconfig.roles.nvidia 
-      then [ (import ./../../roles/nvidia.nix) ] 
-      else [ ])
- ++ (if myconfig.roles.amd 
-      then [ (import ./../../roles/amd.nix) ] 
-      else [ ]);
-
+ ++ [ (import ./../../roles) ]
+ ++ [ inputs.home-manager.nixosModules.home-manager ];
 
   ### HOME MANAGER ###
 
