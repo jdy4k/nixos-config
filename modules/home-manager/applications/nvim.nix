@@ -16,9 +16,6 @@
     nixpkgs.useGlobalPackages = true;
     viAlias = true;
     vimAlias = true;
-    colorschemes.tokyonight = {
-      enable = true;
-    };
 
     plugins = {
 
@@ -46,11 +43,6 @@
 
       lualine = {
         enable = true;
-        settings = {
-          options = {
-            theme = "nord";
-          };
-        };
       };
 
       supermaven = { 
