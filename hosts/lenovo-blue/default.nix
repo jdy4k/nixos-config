@@ -1,14 +1,14 @@
 { inputs, pkgs, config, lib, username, host, tz, myconfig, ... }:
 {
   ### HOST VARS ###
-  networking.hostName = "lenovo-blue";
+  networking.hostName = ${host};
   time.timeZone = "${tz}";
 
   ### NIXOS ###
 
   imports = 
     [ (import ./hardware-configuration.nix) ]
- ++ [ (import ./../../modules/nixos { inherit myconfig; }) ] 
+ ++ [ (import ./../../modules/nixos) ] 
  ++ [ (import ./../../roles) ]
  ++ [ inputs.home-manager.nixosModules.home-manager ];
 
@@ -23,7 +23,7 @@
     };
     users.${username} = {
       imports = [ ./../../modules/home-manager ]
-             ++ [ ./../../modules/packs ];
+             ++ [ ./../../modules/profiles ];
       home = {
         username = "${username}";
         homeDirectory = "/home/${username}";
@@ -49,9 +49,9 @@
       "networkmanager"
       "wheel"
     ];
-    shell = if (myconfig.shell.default == "fish") then 
+    shell = if (myconfig.shell.default == "fish" || myconfig.shell.fish.enable) then 
               pkgs.fish
-            else if (myconfig.shell.default == "zsh") then
+            else if (myconfig.shell.default == "zsh" || myconfig.shell.zsh.enable) then
               pkgs.zsh
             else if (myconfig.shell.default == "bash") then
               pkgs.bash

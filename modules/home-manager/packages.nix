@@ -18,7 +18,5 @@
     imagemagick
     moreutils
     playerctl
-
-    drawy
   ];
 }
