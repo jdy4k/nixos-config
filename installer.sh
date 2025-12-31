@@ -18,9 +18,6 @@ Nixos Installer - jdy4k/nixos-config                                ``  ``    ``
 
 EOF
 
-
-
-
 # functions
 
 test () {
