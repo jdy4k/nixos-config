@@ -1,8 +1,7 @@
 { 
   pkgs, 
   inputs,
-  username,
-  myconfig,
+  username, 
   ...
 }: let
 
@@ -12,10 +11,8 @@
 
   avatar = "${./../../assets/avatar.jpg}";
   
-  sddm-theme = if myconfig.theme.MacoESQUE.enable then
-                 import ./../theme/MacoESQUE/sddm.nix { inherit avatar bg; }
-               else
-                 inputs.silentSDDM.packages.${pkgs.system}.default;
+  sddm-theme = inputs.silentSDDM.packages.${pkgs.system}.default.override {
+  };
 
 in {
   environment.systemPackages = [sddm-theme sddm-theme.test];

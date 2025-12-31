@@ -3,7 +3,7 @@
   imports = [ (import ./network.nix) ]
     ++ [ (import ./pipewire.nix) ]
     ++ [ (import ./system.nix) ]
-    ++ [ (import ./ssdm.nix) ]
+    ++ [ (import ./sddm.nix) ]
     ++ [ (import ./fonts.nix) ]
     ++ [ (import ./wayland.nix) ]
     ++ [ (import ./boot.nix) ]

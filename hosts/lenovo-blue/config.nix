@@ -27,13 +27,6 @@
     };
   };
   
-  displayManager = {
-    sddm = {
-      enable = true;
-      theme = "silent-sddm";
-    };
-  };
-
   theme = {
     # MacoESQUE and (TBA) TrueAMOLED; 
     MacoESQUE.enable = true;
