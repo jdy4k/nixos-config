@@ -12,7 +12,7 @@
   avatar = "${./../../assets/avatar.jpg}";
   
   sddm-theme = inputs.silentSDDM.packages.${pkgs.system}.default.override {
-  };
+  }
 
 in {
   environment.systemPackages = [sddm-theme sddm-theme.test];

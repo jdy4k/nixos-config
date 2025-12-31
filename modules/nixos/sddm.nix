@@ -4,18 +4,22 @@
   username,
   myconfig,
   ...
-}: let
+}: 
+let
 
   bg = pkgs.runCommand "bg.jpg" { } ''
     cp ${./../../assets/sddm-bg.jpg} $out
   '';
-
   avatar = "${./../../assets/avatar.jpg}";
-  
-  sddm-theme = if myconfig.theme.MacoESQUE.enable then
-                 import ./../theme/MacoESQUE/sddm.nix { inherit avatar bg; }
-               else
-                 inputs.silentSDDM.packages.${pkgs.system}.default;
+
+  sddm-theme =
+    inputs.silentSDDM.packages.${pkgs.system}.default.override 
+      (if myconfig.theme.MacoESQUE.enable then
+         (import ./../theme/MacoESQUE/sddm.nix { inherit bg avatar; })
+       else if myconfig.theme.TrueAMOLED.enable then
+         (import ./../theme/TrueAMOLED/sddm.nix { inherit bg avatar; })
+       else
+         { });
 
 in {
   environment.systemPackages = [sddm-theme sddm-theme.test];

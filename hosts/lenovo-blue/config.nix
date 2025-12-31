@@ -10,6 +10,8 @@
     default = "fish";
     fish.enable = true;
     zsh.enable = false;
+    
+    starship.enable = true;
   };
   
   desktopManager = {
@@ -27,11 +29,8 @@
     };
   };
   
-  theme = {
-    # MacoESQUE and (TBA) TrueAMOLED; 
-    MacoESQUE.enable = true;
-    starship.enable = true;
-  };
+  # MacoESQUE, TrueAMOLED
+  theme = "MacoESQUE";
   
   extra = {
     art.enable = false;
