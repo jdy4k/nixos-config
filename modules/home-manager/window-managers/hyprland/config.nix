@@ -25,6 +25,7 @@
       # autostart
       exec-once = [
         "hyprpaper &"
+        "hyprsunset &"
         "fcitx5 -dr &"
 				"quickshell &"
         ''hyprctl dispatch exec "[workspace special silent]" kitty -1''

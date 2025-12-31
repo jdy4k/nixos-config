@@ -4,6 +4,7 @@
      [ (import ./lf) ]
 
   ++ [ (import ./dolphin.nix)   ]
+  ++ [ (import ./drawy.nix)   ]
   ++ [ (import ./kitty.nix)     ]
   ++ [ (import ./nsxiv.nix)     ]
   ++ [ (import ./librewolf.nix) ]

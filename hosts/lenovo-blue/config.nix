@@ -6,7 +6,8 @@
   };
   
   shell = {
-    # bash is always enabled
+    # bash is always enabled; if default is invalid, we be set to bash
+    # default : bash, zsh, fish, make sure default option is enabled
     default = "fish";
     fish.enable = true;
     zsh.enable = false;
@@ -17,8 +18,8 @@
   desktopManager = {
     hyprland.enable = true;
     niri.enable = false; # Not done
-    KDE.enable = false; # Not done
-    i3.enable = false; # Not done; nixos/x11.nix also not done
+    KDE.enable = false;  # Not done
+    i3.enable = false;   # Not done; nixos/x11.nix also not done
   };
   
   # MacoESQUE, TrueAMOLED (TBA), ...
@@ -45,22 +46,24 @@
       center = {
         enable = false;
         name = "null";
+        wacom = false;
         resolution = {
-          width = "0";
-          height = "0";
+          width = "1920";
+          height = "1080";
         };
-        refreshRate = 0;
-        scale = 0;
+        refreshRate = "30";
+        scale = "1";
       };
       bottom = {
         enable = false;
         name = "null";
+        wacom = false;
         resolution = {
-          width = "0";
-          height = "0";
+          width = "1920";
+          height = "1080";
         };
-        refreshRate = 0;
-        scale = 0;
+        refreshRate = "30";
+        scale = "1";
       };
     };
   
@@ -68,24 +71,26 @@
       center = {
         enable = false;
         name = "null";
+        wacom = false;
         resolution = {
-          width = "0";
-          height = "0";
+          width = "1920";
+          height = "1080";
         };
 
-        refreshRate = 0;
-        scale = 0;
+        refreshRate = "30";
+        scale = "1";
       };
       bottom = {
         enable = false;
         name = "null";
+        wacom = false;
         resolution = {
-          width = "0";
-          height = "0";
+          width = "1920";
+          height = "1080";
         };
 
-        refreshRate = 0;
-        scale = 0;
+        refreshRate = "30";
+        scale = "1";
       };
     };
   };
