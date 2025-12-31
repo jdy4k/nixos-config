@@ -9,11 +9,11 @@ cat << 'EOF'
      MM      MM     `Mb    VMA ,V`       ,AM      MM .d"             JM        `'  ML`
      MM      MM      lM     VMMP`       AVMM      MMMMM.        JMMMMM`          MMMMML
      MM      MM     ,MP      MM       ,W'`MM      MM``VMA       ```JM`          ML`````
-mm  .Mb      MM    ,dP'      MM     ,W'`  MM      MM   `MM.       JM` JL        `` 
+mv  .Mb      MM    ,dP'      MM     ,W'`  MM      MM   `MM.       JM` JL        `` 
 `YmmmY`    .JMMmmmdP'      .JMML.   AmmmmmMMmm  .JMML.   MMb.     ``   MM  JMMMMMMML
                                           MM                          M``M ```ML````
 ----------------------------------------- MM ----------------        ML  JM   `ML   
-Nixos Installer - jdy4k/nixos-config                                ``  ``    ``
+Nixos Installer - jdy4k/nixos-config                                 ``  ``    ``
 (github)
 
 EOF
