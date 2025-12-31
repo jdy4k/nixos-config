@@ -1,7 +1,7 @@
 { inputs, pkgs, config, lib, username, host, tz, myconfig, ... }:
 {
   ### HOST VARS ###
-  networking.hostName = ${host};
+  networking.hostName = "${host}";
   time.timeZone = "${tz}";
 
   ### NIXOS ###
@@ -19,11 +19,12 @@
     useGlobalPkgs = true;
     backupFileExtension = "bak";
     extraSpecialArgs = {
-      inherit inputs username host myconfig; 
+      inherit inputs username host myconfig pkgs; 
     };
     users.${username} = {
       imports = [ ./../../modules/home-manager ]
-             ++ [ ./../../modules/profiles ];
+             ++ [ ./../../modules/theme        ]
+             ++ [ ./../../modules/profiles     ];
       home = {
         username = "${username}";
         homeDirectory = "/home/${username}";
