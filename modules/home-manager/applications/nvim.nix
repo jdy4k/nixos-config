@@ -18,6 +18,15 @@
     vimAlias = true;
 
     plugins = {
+      web-devicons.enable = true;
+      cursorline.enable = true;
+      smear-cursor.enable = true;
+      neoscroll.enable = true;
+      telescope.enable = true;
+      transparent.enable = true;
+      rainbow-delimiters.enable = true;
+      mini-pairs.enable = true;
+      lualine.enable = true;
 
       treesitter = {
         enable = true;
@@ -28,23 +37,6 @@
         };
       };
 
-      web-devicons.enable = true;
-      cursorline.enable = true;
-      smear-cursor.enable = true;
-      neoscroll.enable = true;
-      telescope.enable = true;
-      transparent.enable = true;
-      rainbow-delimiters.enable = true;
-      mini-pairs.enable = true;
-
-      #lightline = {
-      #  enable = true;
-      #};
-
-      lualine = {
-        enable = true;
-      };
-
       supermaven = { 
         enable = true;
         settings = {
@@ -53,7 +45,6 @@
           };
         };
       };
-
     };
 
     keymaps = [

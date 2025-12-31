@@ -7,10 +7,10 @@
       previewer = "${config.xdg.configHome}/lf/bin/previewer";
     };
     keybindings = {
-      "a" =	":push %touch<space>''<left>";
-      "A"	= ":push %mkdir<space>''<left>";
+      "a" = ":push %touch<space>''<left>";
+      "A" = ":push %mkdir<space>''<left>";
       "<delete>" = ":delete";
-      "<right>"	= ":open";
+      "<right>" = ":open";
       "b" = "$vidir";
       "E" = "!atool -x \"$fx\"";
     };

@@ -1,6 +1,6 @@
 { inputs, ... }:
 {
   imports =
-       [ (import ./mpd.nix) ]
-    ++ [ (import ./ncmpcpp.nix) ];
+     [ (import ./mpd.nix)     ]
+  ++ [ (import ./ncmpcpp.nix) ];
 }

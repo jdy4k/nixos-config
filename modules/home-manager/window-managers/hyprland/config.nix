@@ -1,15 +1,7 @@
-{
-  pkgs,
-  host,
-  lib,
-  username,
-  myconfig,
-  ...
-}: 
+{ pkgs, host, lib, username, myconfig, ... }: 
 {
   wayland.windowManager.hyprland = {
     settings = {
-
       # monitors
       "debug:disable_scale_checks" = true;
       monitor = lib.concatStrings [ 
@@ -25,6 +17,10 @@
 
         "${myconfig.monitors.primary.scale}"
       ];
+
+      ### More monitors with conditiona logic go below
+      # ...
+      # ...
 
       # autostart
       exec-once = [
@@ -56,7 +52,8 @@
 
       device = {
         name = "epic-mouse-v1";
-        sensitivity = -0.5; 
+        sensitivity = -0.5;
+        # Enable Wacom tablet here or in the art profile
       };
 
       bind = [
@@ -71,10 +68,12 @@
         "$mainMod, F, fullscreen,"
         "$mainMod, P, pin,"
         "$mainMod, J, togglesplit,"
+
         "$mainMod, left, movefocus, l"
         "$mainMod, right, movefocus, r"
         "$mainMod, up, movefocus, u"
         "$mainMod, down, movefocus, d"
+
         "$mainMod, 1, workspace, 1"
         "$mainMod, 2, workspace, 2"
         "$mainMod, 3, workspace, 3"
@@ -85,6 +84,7 @@
         "$mainMod, 8, workspace, 8"
         "$mainMod, 9, workspace, 9"
         "$mainMod, 0, workspace, 10"
+
         "$mainMod SHIFT, 1, movetoworkspace, 1"
         "$mainMod SHIFT, 2, movetoworkspace, 2"
         "$mainMod SHIFT, 3, movetoworkspace, 3"

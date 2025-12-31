@@ -1,10 +1,4 @@
-{
-  inputs,
-  lib,
-  pkgs,
-  config,
-  ...
-}:
+{ inputs, lib, pkgs, config, ... }:
 {
   home.packages = with pkgs; [
     zip

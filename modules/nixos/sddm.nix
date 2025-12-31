@@ -14,9 +14,9 @@ let
 
   sddm-theme =
     inputs.silentSDDM.packages.${pkgs.system}.default.override 
-      (if myconfig.theme.MacoESQUE.enable then
+      (if myconfig.theme == "MacoESQUE" then
          (import ./../theme/MacoESQUE/sddm.nix { inherit bg avatar; })
-       else if myconfig.theme.TrueAMOLED.enable then
+       else if myconfig.theme == "TrueAMOLED" then
          (import ./../theme/TrueAMOLED/sddm.nix { inherit bg avatar; })
        else
          { });

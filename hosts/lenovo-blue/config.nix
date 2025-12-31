@@ -15,21 +15,13 @@
   };
   
   desktopManager = {
-    hyprland = {
-      enable = true;
-    };
-    niri = {
-      enable = false;
-    };
-    KDE = {
-      enable = false;
-    };
-    i3 = {
-      enable = false;
-    };
+    hyprland.enable = true;
+    niri.enable = false; # Not done
+    KDE.enable = false; # Not done
+    i3.enable = false; # Not done; nixos/x11.nix also not done
   };
   
-  # MacoESQUE, TrueAMOLED
+  # MacoESQUE, TrueAMOLED (TBA), ...
   theme = "MacoESQUE";
   
   extra = {
