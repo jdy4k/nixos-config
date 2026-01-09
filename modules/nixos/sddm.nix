@@ -1,12 +1,4 @@
-{ 
-  pkgs, 
-  inputs,
-  lib,
-  username,
-  myconfig,
-  ...
-}: 
-let
+{ pkgs, inputs, lib, username, myconfig, ... }: let
 
   bg = pkgs.runCommand "bg.jpg" { } ''
     cp ${./../../assets/sddm-bg.jpg} $out

@@ -10,6 +10,7 @@
       enable = true;
     };
   };
+
   services = {
     avahi.enable = lib.mkDefault false;
   };

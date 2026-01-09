@@ -63,7 +63,7 @@
             inherit self inputs username tz;
           };
         };
-	rock-grey = nixpkgs.lib.nixosSystem {
+	      rock-grey = nixpkgs.lib.nixosSystem {
           inherit system;
           modules = [
             (import ./hosts/rock-grey)

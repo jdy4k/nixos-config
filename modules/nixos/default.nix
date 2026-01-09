@@ -7,8 +7,8 @@
   ++ [ (import ./fonts.nix)    ]
   ++ [ (import ./wayland.nix)  ]
   ++ [ (import ./mullvad.nix)  ]
-  ++ [ (import ./sddm.nix)  ]
-  ++ [ (import ./x11.nix)  ]
+  ++ [ (import ./sddm.nix)     ]
+  ++ [ (import ./x11.nix)      ]
   ++ [ (import ./boot.nix)     ]
   ++ [ (import ./xdg.nix)      ];
 }

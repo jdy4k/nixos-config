@@ -1,6 +1,5 @@
 { username, config, pkgs, ... }:
 {
-
   home.packages = with pkgs; [
     mpc
     rmpc

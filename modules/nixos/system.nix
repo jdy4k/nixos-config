@@ -1,10 +1,4 @@
-{
-  self,
-  pkgs,
-  lib,
-  inputs,
-  ...
-}:
+{ self, pkgs, lib, inputs, ... }:
 {
   nix = {
     settings = {
@@ -28,5 +22,4 @@
   i18n.defaultLocale = "en_US.UTF-8";
   time.timeZone = lib.mkDefault "America/New_York";
   system.stateVersion = "25.11";
-
 }

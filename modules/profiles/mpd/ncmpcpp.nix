@@ -7,5 +7,4 @@
       lyrics_directory = "~/Music/";
     };
   };
-
 }
