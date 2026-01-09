@@ -5,14 +5,17 @@
   username,
   myconfig,
   ...
-}: 
+}: let
+  bg = import ./../../../../../assets/wallpaper.jpg;
+  avatar = import ./../../../../../assets/avatar.jpg;
+in
 {
   wayland.windowManager.hyprland = {
 
     settings = {
       exec-once = [
-        "dms ipc call profile setImage /home/jdy4k/Nixos/assets/avatar.jpg"
-        "dms ipc call wallpaper set /home/jdy4k/Nixos/assets/wallpaper.jpg"
+        "dms ipc call profile setImage ${bg}"
+        "dms ipc call wallpaper set ${avatar}"
       ];
       general = {
         layout = "dwindle";
