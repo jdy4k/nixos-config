@@ -14,8 +14,6 @@
     playerctl
     yt-dlp
     pavucontrol
-    nix-search-tv
-    fzf
     easyeffects
   ];
 }
