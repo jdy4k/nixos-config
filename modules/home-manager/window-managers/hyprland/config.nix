@@ -189,11 +189,30 @@
         "name:special, monitor:${myconfig.monitors.primary.name}"
       ]
       ++ (if myconfig.monitors.left.enable then
-        ["name:l, monitor:${myconfig.monitors.left.name}, gapsin:0, gapsout:0, default:true, rounding:0, decorate:false"]
+        ["name:l, monitor:${myconfig.monitors.left.name}, gapsin:0, gapsout:0, default:true"]
       else [ ])
       ++ (if myconfig.monitors.left.bottom.enable then
-        ["name:lb, monitor:${myconfig.monitors.left.bottom.name}, gapsin:0, gapsout:0, default:true, rounding:0, decorate:false"]
+        ["name:lb, monitor:${myconfig.monitors.left.bottom.name}, gapsin:0, gapsout:0, default:true"]
       else [ ]);
+
+      windowrule = [
+
+      ]
+      ++ (if myconfig.monitors.left.enable then [
+        "border_size 0, match:float 0, match:workspace name:l"
+        "rounding 0, match:float 0, match:workspace name:l"
+        "border_size 0, match:float 0, match:workspace name:l"
+        "rounding 0, match:float 0, match:workspace name:l"
+        ]
+      else [ ])
+      ++ (if myconfig.monitors.left.bottom.enable then [
+        "border_size 0, match:float 0, match:workspace name:lb"
+        "rounding 0, match:float 0, match:workspace name:lb"
+        "border_size 0, match:float 0, match:workspace name:lb"
+        "rounding 0, match:float 0, match:workspace name:lb"
+        ]
+      else [ ]);
+
     };
   };
 }
