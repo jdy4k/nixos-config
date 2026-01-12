@@ -27,6 +27,7 @@
       rainbow-delimiters.enable = true;
       mini-pairs.enable = true;
       lualine.enable = true;
+      nextflow.enable = true;
 
       treesitter = {
         enable = true;

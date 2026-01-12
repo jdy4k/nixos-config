@@ -8,7 +8,7 @@
       background_opacity = "0.7";
 
       font_family = "FiraCode Nerd Font";
-      font_size = "14.0";
+      font_size = "13.0";
     };
   };
 
