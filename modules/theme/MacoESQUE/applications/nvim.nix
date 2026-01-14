@@ -5,15 +5,7 @@
       enable = true;
     };
     plugins = {
-      transparent = {
-        enable = true;
-        settings = {
-          extra_groups = [
-            "NormalFloat"
-            "NvimTreeNormal"
-          ];
-        };
-      };      
+      transparent.enable = true;      
       lualine = {
         settings = {
           options = {
