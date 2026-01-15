@@ -2,5 +2,5 @@
 {
   imports = 
      [ (import ./anki.nix) ]
-  ++ [ (import ./goldendict.nix) ]
+  ++ [ (import ./goldendict.nix) ];
 }
