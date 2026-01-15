@@ -13,6 +13,8 @@
       then [ ./mpd             ] else [ ])
   ++ (if myconfig.extra.gaming.enable      
       then [ ./gaming          ] else [ ])
+  ++ (if myconfig.extra.lang-tools.enable      
+      then [ ./lang-tools      ] else [ ])
   ++ (if myconfig.extra.art.enable         
       then [ ./art             ] else [ ]);
 }

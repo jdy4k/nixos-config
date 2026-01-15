@@ -37,6 +37,8 @@
           folding.enable = true;
         };
       };
+      quarto.enable = true;
+      otter.enable = true;
 
       supermaven = { 
         enable = true;

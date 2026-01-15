@@ -38,6 +38,7 @@
     gaming.enable = true;
     discord.enable = true;
     libreoffice.enable = true;
+    lang-tools.enable = true;
   };
 
   monitors = {

@@ -13,7 +13,10 @@
     moreutils
     playerctl
     yt-dlp
+    
     pavucontrol
     easyeffects
+    wine
+    veracrypt
   ];
 }
