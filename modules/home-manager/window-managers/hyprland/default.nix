@@ -19,6 +19,7 @@
     CLUTTER_BACKEND = "wayland";
     XDG_CURRENT_DESKTOP = "Hyprland";
     XDG_SESSION_DESKTOP = "Hyprland";
+    GOLDENDICT_FORCE_WAYLAND = "1";
   };
 
   wayland.windowManager.hyprland = {
