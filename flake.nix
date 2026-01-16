@@ -37,6 +37,7 @@
       inputs.quickshell.follows = "quickshell";
     };
     nix-firefox-addons.url = "github:osipog/nix-firefox-addons";
+    nur.url = "github:nix-community/NUR";
   };
 
   outputs =

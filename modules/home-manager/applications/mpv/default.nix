@@ -9,6 +9,6 @@
       mpvacious
     ];
   };
-  xdg.configFile."mpv/mpv.conf".source = ./mpv.conf;
-  xdg.configFile."mpv/script-opts".source = ./script-opts;
+  xdg.configFile."mpv/mpv.conf".source = ./conf/mpv.conf;
+  xdg.configFile."mpv/script-opts".source = ./conf/script-opts;
 }
