@@ -1,0 +1,3 @@
+[submodule "modules/profiles/lang-tools/addons/ajt_japanese"]
+	path = modules/profiles/lang-tools/addons/ajt_japanese
+	url = https://github.com/Ajatt-Tools/Japanese
