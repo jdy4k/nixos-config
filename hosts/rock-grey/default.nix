@@ -13,7 +13,7 @@
     ++ [ (import ./../../roles)                        ]
     ++ [ inputs.home-manager.nixosModules.home-manager ];
 
-    ### HOME MANAGER ###
+  ### HOME MANAGER ###
   
     home-manager = {
   

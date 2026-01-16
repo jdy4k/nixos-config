@@ -1,10 +1,14 @@
-{ pkgs, lib, inputs, nur, stdenv, fetchurl, ... }:
+{ pkgs, lib, inputs, ... }:
 let
   profile = "default";
+  stdenv = pkgs.stdenv;
+  fetchurl = pkgs.fetchurl;
+  buildFirefoxXpiAddon = import ./addons/build-firefox-xpi-addon.nix pkgs;
+
   rikaitan = import ./addons/rikaitan.nix {
-    inherit lib stdenv fetchurl;
-    inherit (inputs.nur.repos.rycee.firefox-addons) buildFirefoxXpiAddon;
-  }
+    inherit lib stdenv fetchurl buildFirefoxXpiAddon;
+  };
+
 in
 {
   programs.librewolf = {
