@@ -31,19 +31,15 @@ let
       hash = "sha256:16ra8335rgv97w26bjd3qkdb372rjjf6aa6zjpnd7v8l0dpjis6r";
     };
 
-    nativeBuildInputs = with pkgs; [ xmake pkg-config ];
-
     buildPhase = ''
-      export HOME=$TMPDIR
-      xmake config -m release
-      xmake build
+      g++ -std=c++23 -O2 -c src/rdricpp.cpp -o rdricpp.o -I src
+      ar rcs librdricpp.a rdricpp.o
     '';
 
     installPhase = ''
-      mkdir -p $out/include $out/lib
-      cp -r include/* $out/include/ 2>/dev/null || cp *.hpp $out/include/ 2>/dev/null || true
-      find . -name "*.a" -exec cp {} $out/lib/ \; 2>/dev/null || true
-      find . -name "*.so" -exec cp {} $out/lib/ \; 2>/dev/null || true
+      mkdir -p $out/include/rdricpp $out/lib
+      cp src/*.h $out/include/rdricpp/
+      cp librdricpp.a $out/lib/
     '';
   };
 
@@ -60,43 +56,61 @@ pkgs.stdenv.mkDerivation rec {
   };
 
   nativeBuildInputs = with pkgs; [
-    xmake
     pkg-config
-    gcc13
   ];
 
   buildInputs = with pkgs; [
-    cpr
+    libcpr
     curl
     openssl
     nlohmann_json
     marisa
     mecab
-    cpp-subprocess
-    rdricpp
   ];
 
-  configurePhase = ''
-    export HOME=$TMPDIR
-    export PKG_CONFIG_PATH="${pkgs.cpr}/lib/pkgconfig:${pkgs.marisa}/lib/pkgconfig:${pkgs.mecab}/lib/pkgconfig:$PKG_CONFIG_PATH"
-    export CPLUS_INCLUDE_PATH="${cpp-subprocess}/include:${rdricpp}/include:${pkgs.nlohmann_json}/include:${pkgs.marisa}/include:${pkgs.mecab}/include:${pkgs.cpr}/include:$CPLUS_INCLUDE_PATH"
-    export LIBRARY_PATH="${rdricpp}/lib:${pkgs.marisa}/lib:${pkgs.mecab}/lib:${pkgs.cpr}/lib:$LIBRARY_PATH"
-  '';
-
   buildPhase = ''
-    export HOME=$TMPDIR
-    xmake config -m release --tests=n
-    xmake build -v gd-tools
+    runHook preBuild
+
+    # Compile all source files
+    g++ -std=c++23 -O2 \
+      -I${cpp-subprocess}/include \
+      -I${rdricpp}/include \
+      -I${pkgs.nlohmann_json}/include \
+      -I${pkgs.marisa}/include \
+      -I${pkgs.mecab}/include \
+      -I${pkgs.libcpr}/include \
+      -D_GLIBCXX_ASSERTIONS \
+      -o gd-tools \
+      src/main.cpp \
+      src/anki_search.cpp \
+      src/echo.cpp \
+      src/images.cpp \
+      src/kana_conv.cpp \
+      src/marisa_split.cpp \
+      src/massif.cpp \
+      src/mecab_split.cpp \
+      src/translate.cpp \
+      src/util.cpp \
+      -L${rdricpp}/lib -lrdricpp \
+      -L${pkgs.marisa}/lib -lmarisa \
+      -L${pkgs.mecab}/lib -lmecab \
+      -L${pkgs.libcpr}/lib -lcpr \
+      -L${pkgs.curl}/lib -lcurl \
+      -pthread
+
+    runHook postBuild
   '';
 
   installPhase = ''
+    runHook preInstall
+
     mkdir -p $out/bin $out/share/gd-tools $out/share/fonts/gd-tools
 
     # Install main binary
-    find build -name "gd-tools" -type f -executable -exec cp {} $out/bin/ \;
+    install -Dm755 gd-tools $out/bin/gd-tools
 
     # Create symlinks for variants
-    for variant in gd-ankisearch gd-echo gd-massif gd-images gd-marisa gd-mecab; do
+    for variant in gd-ankisearch gd-echo gd-massif gd-images gd-marisa gd-mecab gd-translate; do
       ln -s $out/bin/gd-tools $out/bin/$variant
     done
 
@@ -108,6 +122,8 @@ pkgs.stdenv.mkDerivation rec {
     # Install resources
     cp res/*.dic $out/share/gd-tools/ 2>/dev/null || true
     cp res/*.ttf $out/share/fonts/gd-tools/ 2>/dev/null || true
+
+    runHook postInstall
   '';
 
   meta = with lib; {
@@ -117,4 +133,3 @@ pkgs.stdenv.mkDerivation rec {
     platforms = platforms.linux;
   };
 }
-

@@ -2,9 +2,9 @@
 {  
   programs.ncmpcpp = {
     enable = true;
-    mpdMusicDir = "~/Music/";
+    mpdMusicDir = "~/Media/Music/";
     settings = {
-      lyrics_directory = "~/Music/";
+      lyrics_directory = "~/Media/Music/";
     };
   };
 }
