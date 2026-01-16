@@ -1,14 +1,10 @@
 { pkgs, lib, inputs, nur, stdenv, fetchurl, ... }:
 let
   profile = "default";
-
-  rikaitan = pkgs.buildFirefoxXpiAddon {
-    pname = "rikaitan";
-    version = "25.12.31.0";
-    addonId = "tatsu@autistici.org";
-    url = "https://github.com/Ajatt-Tools/rikaitan/releases/download/25.12.31.0/rikaitan-firefox-selfhosted.xpi";
-    sha256 = "sha256-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=";
-  };
+  rikaitan = import ./addons/rikaitan.nix {
+    inherit lib stdenv fetchurl;
+    inherit (inputs.nur.repos.rycee.firefox-addons) buildFirefoxXpiAddon;
+  }
 in
 {
   programs.librewolf = {
@@ -39,11 +35,6 @@ in
       ];
     };
   };
-
-  import ./generated.nix {
-    inherit lib stdenv fetchurl;
-    inherit (inputs.nur.repos.rycee.firefox-addons) buildFirefoxXpiAddon;
-  }
 
   home.file.".librewolf/${profile}/chrome" = {
     source = "${inputs.potatofox}/chrome";
