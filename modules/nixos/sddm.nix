@@ -7,12 +7,7 @@
 
   sddm-theme =
     inputs.silentSDDM.packages.${pkgs.system}.default.override 
-      (if myconfig.theme == "MacoESQUE" then
-         (import ./../theme/MacoESQUE/sddm.nix { inherit bg avatar myconfig; })
-       else if myconfig.theme == "TrueAMOLED" then
-         (import ./../theme/TrueAMOLED/sddm.nix { inherit bg avatar myconfig; })
-       else
-         { });
+      (import ./../home-manager/theme/sddm.nix { inherit bg avatar myconfig; });
 
 in {
   environment.systemPackages = [sddm-theme sddm-theme.test];

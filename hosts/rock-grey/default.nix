@@ -7,7 +7,7 @@
   ### NIXOS ###
 
   imports = 
-     [ (import ./hardware-configuration.nix)         ]
+       [ (import ./hardware-configuration.nix)         ]
     ++ [ (import ./../../modules/nixos/boot.nix)     ] 
     ++ [ (import ./../../modules/nixos)                ] 
     ++ [ (import ./../../roles)                        ]
@@ -27,7 +27,6 @@
       users.${username} = {
         imports = 
            [ ./../../modules/home-manager ]
-        ++ [ ./../../modules/theme        ]
         ++ [ ./../../modules/profiles     ];
         home = {
           username = "${username}";

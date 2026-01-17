@@ -16,14 +16,8 @@
     kdePackages.kscreen
   ];
 
-  programs.hyprland = 
-    if myconfig.desktopManager.hyprland.enable then
-      {
-        enable = true;
-        withUWSM = true;
-      }
-    else
-      {
-        enable = false; 
-      };
+  programs.hyprland = {
+    enable = true;
+    withUWSM = true;
+  };
 }

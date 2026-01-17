@@ -16,7 +16,9 @@
     nixpkgs.useGlobalPackages = true;
     viAlias = true;
     vimAlias = true;
-
+    colorschemes.tokyonight = {
+      enable = true;
+    };
     plugins = {
       web-devicons.enable = true;
       cursorline.enable = true;
@@ -26,8 +28,14 @@
       transparent.enable = true;
       rainbow-delimiters.enable = true;
       mini-pairs.enable = true;
-      lualine.enable = true;
-
+      transparent.enable = true;      
+      lualine = {
+        settings = {
+          options = {
+            theme = "nord";
+          };
+        };
+      };
       treesitter = {
         enable = true;
         settings = {

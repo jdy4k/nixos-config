@@ -15,16 +15,6 @@
     starship.enable = true;
   };
   
-  desktopManager = {
-    hyprland.enable = true;
-    niri.enable = false;    # Not done
-    plasma.enable = false;  # Not done
-    i3.enable = false;      # Not done; nixos/x11.nix also not done
-  };
-  
-  # MacoESQUE, TrueAMOLED (TBA), ...
-  theme = "MacoESQUE";
-  
   extra = {
     art = {
       enable = true;

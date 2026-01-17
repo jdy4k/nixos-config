@@ -1,5 +1,7 @@
 { pkgs, ... }:
 {
+  imports = [ ./theme.nix ];
+
   home.packages = with pkgs; [ anyrun ];
   programs.anyrun = {
     enable = true;

@@ -2,8 +2,7 @@
 {
   imports =
      [ (import ./config.nix) ]
-  ++ [ (import ./anyrun.nix) ]
-  ++ [ (import ./dms.nix)    ];
+  ++ [ (import ./theme.nix)  ];
 
   home.sessionVariables = {
     DISABLE_QT5_COMPAT = "0";

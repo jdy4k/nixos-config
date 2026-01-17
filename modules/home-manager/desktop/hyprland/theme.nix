@@ -6,8 +6,8 @@
   myconfig,
   ...
 }: let
-  bg = "${./../../../../../assets/wallpaper.jpg}";
-  avatar = "${./../../../../../assets/avatar.jpg}";
+  bg = "${./../../../../assets/wallpaper.jpg}";
+  avatar = "${./../../../../assets/avatar.jpg}";
 in
 {
   wayland.windowManager.hyprland = {

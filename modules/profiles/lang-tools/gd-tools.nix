@@ -71,7 +71,6 @@ pkgs.stdenv.mkDerivation rec {
   buildPhase = ''
     runHook preBuild
 
-    # Compile all source files
     g++ -std=c++23 -O2 \
       -I${cpp-subprocess}/include \
       -I${rdricpp}/include \
@@ -106,20 +105,16 @@ pkgs.stdenv.mkDerivation rec {
 
     mkdir -p $out/bin $out/share/gd-tools $out/share/fonts/gd-tools
 
-    # Install main binary
     install -Dm755 gd-tools $out/bin/gd-tools
 
-    # Create symlinks for variants
     for variant in gd-ankisearch gd-echo gd-massif gd-images gd-marisa gd-mecab gd-translate; do
       ln -s $out/bin/gd-tools $out/bin/$variant
     done
 
-    # Install shell scripts
     for script in src/*.sh; do
       install -Dm755 "$script" "$out/bin/$(basename $script)"
     done
 
-    # Install resources
     cp res/*.dic $out/share/gd-tools/ 2>/dev/null || true
     cp res/*.ttf $out/share/fonts/gd-tools/ 2>/dev/null || true
 
