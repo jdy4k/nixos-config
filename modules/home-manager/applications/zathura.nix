@@ -1,4 +1,9 @@
-{ pkgs, ... }: 
+{ pkgs, ... }:
+let
+  bridge = pkgs.writeShellScript "bridge" ''
+  wl-copy $(wl-paste --primary)
+  '';
+in
 {
   programs.zathura = {
     enable = true;
@@ -50,6 +55,25 @@
       # set recolor-keephue             true      # keep original color
       
       set selection-notification false
+      selection-clipboard "primary"
       '';
+  }; 
+
+  systemd.user.services.clipboard-bridge = {
+    Unit = {
+      Description = "Send clipboard primary to normal clipboard";
+      After = [ "graphical-session.target" ];
+      PartOf = [ "graphical-session.target" ];
+    };
+    Service = {
+      Type = "simple";
+      ExecStart = "${pkgs.wl-clipboard}/bin/wl-paste --primary --watch ${bridge}";
+      Restart = "on-failure";
+      RestartSec = 5;
+    };
+    Install = {
+      WantedBy = [ "graphical-session.target" ];
+    };
   };
+
 }

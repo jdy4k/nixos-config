@@ -13,7 +13,8 @@
     moreutils
     playerctl
     yt-dlp
-    
+
+    # make nix files...
     pavucontrol
     easyeffects
     wine

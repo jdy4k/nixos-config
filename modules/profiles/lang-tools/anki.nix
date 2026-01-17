@@ -9,7 +9,21 @@
       passfail2
       review-heatmap
       
-      # AJT tries to write to a database in its local directory, which is not possible in the Nix store (I think)
+      # My AJT fork / harcodes databases to .local/share/Anki2/
+      (pkgs.anki-utils.buildAnkiAddon (finalAttrs: {
+        pname = "AJT Japanese";
+        version = "v25.5.15.0";
+        src = pkgs.fetchFromGitHub {
+          owner = "jdy4k";
+          repo = "Japanese-nixos";
+          rev = "e0991213d68ccb7616a2c02d57888b944ad44ecf";
+          hash = "sha256-Rp05Ko2Kg1kUKCX5DgHbasyJ4349t4L+WzkA+yoRCg0=";
+          fetchSubmodules = true;
+        };
+        sourceRoot = "${finalAttrs.src.name}/japanese";
+      }))
+
+      # AJT tries to write to a database in its local directory, which is not possible in the Nix store
       #(pkgs.anki-utils.buildAnkiAddon (finalAttrs: {
       #  pname = "AJT Japanese";
       #  version = "v25.5.15.0";

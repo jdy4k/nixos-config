@@ -4,7 +4,7 @@ let
   gd-tools = pkgs.callPackage ./gd-tools.nix { };
   
   gd-clipboard = pkgs.writeShellScript "gd-clipboard" ''
-    read -r clipboard
+    read -r clipboard 
     
     [ -z "''${clipboard// }" ] && exit 0
     

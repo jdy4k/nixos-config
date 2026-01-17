@@ -8,7 +8,7 @@
 
   services.mpd = {
     enable = true;
-    musicDirectory = "/home/${username}/MediaMusic";
+    musicDirectory = "/home/${username}/Media/Music";
     playlistDirectory = "/home/${username}/.local/share/mpd/playlists";
     extraConfig = ''
       restore_paused "yes"
