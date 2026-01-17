@@ -1,10 +1,9 @@
+{ inputs, lib, ... }:
 {
-  inputs,
-  lib,
-  ...
-}:
-{
-  imports = [ inputs.dms.homeModules.dank-material-shell ];
+  imports = [ 
+    inputs.dms.homeModules.dank-material-shell 
+    ./theme.nix
+  ];
 
   programs.dank-material-shell = {
     enable = true;
@@ -24,6 +23,4 @@
     enableAudioWavelength = true; # Audio visualizer (cava)
     enableCalendarEvents = true; # Calendar integration (khal)
   };
-
-  xdg.configFile."DankMaterialShell/settings.json".source = lib.mkForce ./settings.json;
 }
