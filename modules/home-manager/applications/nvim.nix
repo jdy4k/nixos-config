@@ -25,7 +25,6 @@
       smear-cursor.enable = true;
       neoscroll.enable = true;
       telescope.enable = true;
-      transparent.enable = true;
       rainbow-delimiters.enable = true;
       mini-pairs.enable = true;
       transparent.enable = true;      

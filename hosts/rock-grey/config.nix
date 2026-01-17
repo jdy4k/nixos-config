@@ -11,8 +11,6 @@
     default = "fish";
     fish.enable = true;
     zsh.enable = false;
-    
-    starship.enable = true;
   };
   
   extra = {

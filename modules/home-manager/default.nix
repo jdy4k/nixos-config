@@ -4,7 +4,7 @@
      [ (import ./desktop)       ]
   ++ [ (import ./applications)  ]
   ++ [ (import ./shells)        ]
-  ++ [ (import ./themes)        ]
+  ++ [ (import ./theme)         ]
 
   ++ [ (import ./packages.nix)  ]
   ++ [ (import ./variables.nix) ];
