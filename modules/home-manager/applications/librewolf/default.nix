@@ -2,12 +2,9 @@
 let
   profile = "default";
   buildFirefoxXpiAddon = pkgs.callPackage ./addons/build-firefox-xpi-addon.nix {};
-  # buildFirefoxXpiAddon = import ./addons/build-firefox-xpi-addon.nix pkgs; <- why didnt this work?
-
   rikaitan = import ./addons/rikaitan.nix {
     inherit buildFirefoxXpiAddon;
   };
-
 in
 {
   programs.librewolf = {
@@ -25,7 +22,7 @@ in
         "widget.gtk.rounded-bottom-corners.enabled" = true;
         "browser.compactmode.show" = true;
         "widget.gtk.ignore-bogus-leave-notify" = 1;
-        "browser.tabs.allow_transparent_browser" = false;
+        "browser.tabs.allow_transparent_browser" = true;
         "browser.uidensity" = 1;
         "browser.aboutConfig.showWarning" = false;
         "extensions.autoDisableScopes" = 0;
