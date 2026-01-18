@@ -9,5 +9,5 @@
     ];
   };
   xdg.configFile."mpv/mpv.conf".source = ./conf/mpv.conf;
-  xdg.configFile."mpv/script-opts/uosc.conf".source = ./conf/script-opts/uosc.conf;
+  xdg.configFile."mpv/script-opts".source = ./conf/script-opts;
 }
