@@ -14,7 +14,7 @@
       overlays.default = final: prev: {
         lib = prev.lib // {
           local = {
-            buildFirefoxXpiAddon = final.callPackage ./overlays/build-firefox-xpi-addon.nix {};
+            buildFirefoxXpiAddon = final.callPackage ./lib/build-firefox-xpi-addon.nix {};
           };
         };
         

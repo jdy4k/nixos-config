@@ -27,11 +27,11 @@ in
         "browser.aboutConfig.showWarning" = false;
         "extensions.autoDisableScopes" = 0;
       };
-      extensions.packages = with pkgs [
+      extensions.packages = with pkgs; [
         firefoxAddons.bitwarden-password-manager
         firefoxAddons.sidebery
         firefoxAddons.userchrome-toggle-extended
-        local.rikaitan
+        local.firefoxAddons.rikaitan
       ];
     };
   };
