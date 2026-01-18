@@ -1,10 +1,10 @@
 { pkgs, lib, inputs, ... }:
 let
   profile = "default";
-  buildFirefoxXpiAddon = pkgs.callPackage ./addons/build-firefox-xpi-addon.nix {};
-  rikaitan = import ./addons/rikaitan.nix {
-    inherit buildFirefoxXpiAddon;
-  };
+  #buildFirefoxXpiAddon = pkgs.callPackage ./addons/build-firefox-xpi-addon.nix {};
+  #rikaitan = import ./addons/rikaitan.nix {
+  #  inherit buildFirefoxXpiAddon;
+  #};
 in
 {
   programs.librewolf = {
@@ -27,11 +27,11 @@ in
         "browser.aboutConfig.showWarning" = false;
         "extensions.autoDisableScopes" = 0;
       };
-      extensions.packages = with pkgs.firefoxAddons; [
-        pkgs.firefoxAddons.bitwarden-password-manager
-        pkgs.firefoxAddons.sidebery
-        pkgs.firefoxAddons.userchrome-toggle-extended
-        rikaitan
+      extensions.packages = with pkgs [
+        firefoxAddons.bitwarden-password-manager
+        firefoxAddons.sidebery
+        firefoxAddons.userchrome-toggle-extended
+        local.rikaitan
       ];
     };
   };

@@ -1,8 +1,6 @@
 { pkgs, ... }:
 
 let
-  #gd-tools = pkgs.callPackage ./gd-tools.nix { };
-  
   gd-clipboard = pkgs.writeShellScript "gd-clipboard" ''
     read -r clipboard 
     
@@ -29,8 +27,8 @@ in
   home.packages = with pkgs; [
     goldendict-ng
     mecab
-    gd-tools
     wl-clipboard
+    local.gd-tools
   ];
 
   home.file.".local/share/gd-tools/marisa_words.dic".source = 

@@ -3,8 +3,8 @@
   programs.lf = {
     enable = true;
     settings = {
-      cleaner = "${config.xdg.configHome}/lf/bin/cleaner";
-      previewer = "${config.xdg.configHome}/lf/bin/previewer";
+      cleaner = "${config.xdg.configHome}/lf/_bin/cleaner";
+      previewer = "${config.xdg.configHome}/lf/_bin/previewer";
     };
     keybindings = {
       "a" = ":push %touch<space>''<left>";
@@ -16,8 +16,8 @@
     };
   };
 
-  xdg.configFile."lf/bin/cleaner".source = ./bin/cleaner;
-  xdg.configFile."lf/bin/previewer".source = ./bin/previewer;
+  xdg.configFile."lf/bin/cleaner".source = ./_bin/cleaner;
+  xdg.configFile."lf/bin/previewer".source = ./_bin/previewer;
 
   home.packages = with pkgs; [
     bat

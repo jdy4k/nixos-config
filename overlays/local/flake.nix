@@ -12,7 +12,18 @@
     in
     {
       overlays.default = final: prev: {
-        local = import ./pkgs { pkgs = final; };
+        lib = prev.lib // {
+          local = {
+            buildFirefoxXpiAddon = final.callPackage ./overlays/build-firefox-xpi-addon.nix {};
+          };
+        };
+        
+        local = (import ./pkgs { pkgs = final; }) // {
+          firefoxAddons = import ./pkgs/addons { 
+            pkgs = final;
+            buildFirefoxXpiAddon = final.lib.local.buildFirefoxXpiAddon;
+          };
+        };
       };
 
       packages = forAllSystems (system:
