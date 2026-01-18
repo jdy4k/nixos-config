@@ -34,7 +34,8 @@ in
   ];
 
   home.file.".local/share/gd-tools/marisa_words.dic".source = 
-    "${gd-tools}/share/gd-tools/marisa_words.dic";
+    "${pkgs.gd-tools}/share/gd-tools/marisa_words.dic";
+  #"${gd-tools}/share/gd-tools/marisa_words.dic";
 
   systemd.user.services.gd-clipboard = {
     Unit = {

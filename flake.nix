@@ -3,6 +3,11 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    my-packages = { 
+      url = "path:./overlays/my-packages"; 
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -37,10 +42,6 @@
       inputs.quickshell.follows = "quickshell";
     };
     nix-firefox-addons.url = "github:osipog/nix-firefox-addons";
-    langtools = { 
-      url = "github:jdy4k/nixos-langtools"; 
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
   };
 
   outputs =
@@ -60,9 +61,9 @@
           inherit system;
           modules = [
             ({ pkgs, ... }: { 
-              nixpkgs.overlays = [ langtools.overlays.default ];
-            (import ./hosts/lenovo-blue)
+              nixpkgs.overlays = [ inputs.my-packages.overlays.default ];
             })
+            (import ./hosts/lenovo-blue)
           ];
           specialArgs = {
             host = "lenovo-blue";
@@ -73,6 +74,9 @@
 	      rock-grey = nixpkgs.lib.nixosSystem {
           inherit system;
           modules = [
+            ({ pkgs, ... }: { 
+              nixpkgs.overlays = [ inputs.my-packages.overlays.default ];
+            })
             (import ./hosts/rock-grey)
           ];
           specialArgs = {

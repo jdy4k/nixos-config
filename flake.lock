@@ -130,6 +130,26 @@
         "type": "github"
       }
     },
+    "langtools": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1768712982,
+        "narHash": "sha256-c4PVOptRa2cCyMEer7ra99hMBb6jx/TkPpufESkushs=",
+        "owner": "jdy4k",
+        "repo": "nixos-langtools",
+        "rev": "248ccc268fa6f2fca7faeb6a0c63298e6f1e0849",
+        "type": "github"
+      },
+      "original": {
+        "owner": "jdy4k",
+        "repo": "nixos-langtools",
+        "type": "github"
+      }
+    },
     "nix-firefox-addons": {
       "inputs": {
         "flake-utils": "flake-utils",
@@ -271,6 +291,7 @@
         "dgop": "dgop",
         "dms": "dms",
         "home-manager": "home-manager",
+        "langtools": "langtools",
         "nix-firefox-addons": "nix-firefox-addons",
         "nixpkgs": "nixpkgs_2",
         "nixvim": "nixvim",
