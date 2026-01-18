@@ -19,7 +19,7 @@
         };
         
         local = (import ./pkgs { pkgs = final; }) // {
-          firefoxAddons = import ./pkgs/addons { 
+          firefoxAddons = import ./pkgs/firefoxAddons { 
             pkgs = final;
             buildFirefoxXpiAddon = final.lib.local.buildFirefoxXpiAddon;
           };
