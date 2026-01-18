@@ -3,8 +3,8 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    my-packages = { 
-      url = "path:./overlays/my-packages"; 
+    local = { 
+      url = "path:./overlays/local"; 
       inputs.nixpkgs.follows = "nixpkgs";
     };
     
@@ -61,7 +61,7 @@
           inherit system;
           modules = [
             ({ pkgs, ... }: { 
-              nixpkgs.overlays = [ inputs.my-packages.overlays.default ];
+              nixpkgs.overlays = [ inputs.local.overlays.default ];
             })
             (import ./hosts/lenovo-blue)
           ];
@@ -75,7 +75,7 @@
           inherit system;
           modules = [
             ({ pkgs, ... }: { 
-              nixpkgs.overlays = [ inputs.my-packages.overlays.default ];
+              nixpkgs.overlays = [ inputs.local.overlays.default ];
             })
             (import ./hosts/rock-grey)
           ];
