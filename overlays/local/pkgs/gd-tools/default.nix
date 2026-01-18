@@ -57,7 +57,6 @@ pkgs.stdenv.mkDerivation rec {
 
   nativeBuildInputs = with pkgs; [
     pkg-config
-    makeWrapper
   ];
 
   buildInputs = with pkgs; [
@@ -106,14 +105,8 @@ pkgs.stdenv.mkDerivation rec {
 
     mkdir -p $out/bin $out/share/gd-tools $out/share/fonts/gd-tools
 
-    # Install unwrapped binary
-    install -Dm755 gd-tools $out/bin/.gd-tools-unwrapped
+    install -Dm755 gd-tools $out/bin/gd-tools
 
-    # Create wrapper that sets default dic path
-    makeWrapper $out/bin/.gd-tools-unwrapped $out/bin/gd-tools \
-      --add-flags "--path-to-dic $out/share/gd-tools/marisa_words.dic"
-
-    # Create symlinks for variants
     for variant in gd-ankisearch gd-echo gd-massif gd-images gd-marisa gd-mecab gd-translate; do
       ln -s $out/bin/gd-tools $out/bin/$variant
     done
