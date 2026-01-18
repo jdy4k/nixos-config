@@ -59,9 +59,7 @@
         lenovo-blue = nixpkgs.lib.nixosSystem {
           inherit system;
           modules = [
-            ({ ... }: { 
-              nixpkgs.overlays = [ inputs.local.overlays.default ];
-            })
+            ({ nixpkgs.overlays = [ inputs.local.overlays.default ]; })
             (import ./hosts/lenovo-blue)
           ];
           specialArgs = {
@@ -74,9 +72,7 @@
 	      rock-grey = nixpkgs.lib.nixosSystem {
           inherit system;
           modules = [
-            ({ pkgs, ... }: { 
-              nixpkgs.overlays = [ inputs.local.overlays.default ];
-            })
+            ({ nixpkgs.overlays = [ inputs.local.overlays.default ]; })
             (import ./hosts/rock-grey)
           ];
           specialArgs = {
