@@ -3,8 +3,8 @@
   imports =
      [ (import ./lf)         ]
   ++ [ (import ./mpv)        ]
-  ++ [ (import ./librewolf)  ]
 
+  ++ [ (import ./librewolf.nix)  ]
   ++ [ (import ./dolphin.nix)    ]
   ++ [ (import ./chromium.nix)   ]
   ++ [ (import ./obsidian.nix)   ]

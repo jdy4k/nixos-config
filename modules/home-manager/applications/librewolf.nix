@@ -1,10 +1,6 @@
 { pkgs, lib, inputs, ... }:
 let
   profile = "default";
-  #buildFirefoxXpiAddon = pkgs.callPackage ./addons/build-firefox-xpi-addon.nix {};
-  #rikaitan = import ./addons/rikaitan.nix {
-  #  inherit buildFirefoxXpiAddon;
-  #};
 in
 {
   programs.librewolf = {

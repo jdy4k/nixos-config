@@ -6,8 +6,7 @@
     local = { 
       url = "path:./overlays/local"; 
       inputs.nixpkgs.follows = "nixpkgs";
-    };
-    
+    }; 
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -28,7 +27,6 @@
       flake = false;
     };
     quickshell = {
-      # add ?ref=<tag> to track a tag
       url = "git+https://git.outfoxxed.me/quickshell/quickshell";
       inputs.nixpkgs.follows = "nixpkgs";
     };
@@ -57,10 +55,11 @@
     in
     {
       nixosConfigurations = {
+
         lenovo-blue = nixpkgs.lib.nixosSystem {
           inherit system;
           modules = [
-            ({ pkgs, ... }: { 
+            ({ ... }: { 
               nixpkgs.overlays = [ inputs.local.overlays.default ];
             })
             (import ./hosts/lenovo-blue)
@@ -71,6 +70,7 @@
             inherit self inputs username tz;
           };
         };
+
 	      rock-grey = nixpkgs.lib.nixosSystem {
           inherit system;
           modules = [

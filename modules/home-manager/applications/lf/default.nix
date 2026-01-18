@@ -3,8 +3,8 @@
   programs.lf = {
     enable = true;
     settings = {
-      cleaner = "${config.xdg.configHome}/lf/_bin/cleaner";
-      previewer = "${config.xdg.configHome}/lf/_bin/previewer";
+      cleaner = "${config.xdg.configHome}/lf/bin/cleaner";
+      previewer = "${config.xdg.configHome}/lf/bin/previewer";
     };
     keybindings = {
       "a" = ":push %touch<space>''<left>";
