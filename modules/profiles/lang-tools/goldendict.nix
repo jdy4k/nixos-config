@@ -29,13 +29,12 @@ in
   home.packages = with pkgs; [
     goldendict-ng
     mecab
-    gd-tools
+    local.gd-tools
     wl-clipboard
   ];
 
-  home.file.".local/share/gd-tools/marisa_words.dic".source = 
-    "${pkgs.gd-tools}/share/gd-tools/marisa_words.dic";
-  #"${gd-tools}/share/gd-tools/marisa_words.dic";
+  #home.file.".local/share/gd-tools/marisa_words.dic".source = 
+  #  "${pkgs.local.gd-tools}/share/gd-tools/marisa_words.dic";
 
   systemd.user.services.gd-clipboard = {
     Unit = {

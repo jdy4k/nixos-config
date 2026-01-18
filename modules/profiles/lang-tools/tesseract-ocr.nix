@@ -1,6 +1,6 @@
 { pkgs, ... }:
 {
   home.packages = with pkgs; [
-    tesseract-ocr
+    local.tesseract-ocr
   ];
 }

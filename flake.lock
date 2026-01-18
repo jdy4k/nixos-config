@@ -130,18 +130,18 @@
         "type": "github"
       }
     },
-    "my-packages": {
+    "local": {
       "inputs": {
         "nixpkgs": [
           "nixpkgs"
         ]
       },
       "locked": {
-        "path": "./overlays/my-packages",
+        "path": "./overlays/local",
         "type": "path"
       },
       "original": {
-        "path": "./overlays/my-packages",
+        "path": "./overlays/local",
         "type": "path"
       },
       "parent": []
@@ -287,7 +287,7 @@
         "dgop": "dgop",
         "dms": "dms",
         "home-manager": "home-manager",
-        "my-packages": "my-packages",
+        "local": "local",
         "nix-firefox-addons": "nix-firefox-addons",
         "nixpkgs": "nixpkgs_2",
         "nixvim": "nixvim",
