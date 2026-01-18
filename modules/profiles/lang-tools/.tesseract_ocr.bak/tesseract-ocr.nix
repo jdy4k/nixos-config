@@ -1,4 +1,4 @@
-{ pkgs ? import <nixpkgs> {} }:
+{ writers, python3Packages } :
 
 pkgs.writers.writePython3Bin "tesseract-ocr" 
   {
@@ -9,7 +9,9 @@ pkgs.writers.writePython3Bin "tesseract-ocr"
     makeWrapperArgs = [
       "--prefix PATH : ${pkgs.lib.makeBinPath [ 
         pkgs.tesseract
-        pkgs.wl-clipboard 
+        pkgs.grim
+        pkgs.slurp
+        pkgs.wl-clipboard
       ]}"
     ];
   }
@@ -19,9 +21,9 @@ pkgs.writers.writePython3Bin "tesseract-ocr"
     import subprocess
     import io
     
-    # Get image from Wayland clipboard
     result = subprocess.run(
-        ['wl-paste', '--type', 'image/png'],
+        'grim -g "$(slurp -w 0)" -',
+        shell=True,
         capture_output=True,
         check=True
     )
@@ -31,5 +33,5 @@ pkgs.writers.writePython3Bin "tesseract-ocr"
     
     # OCR with Japanese and English
     text = pytesseract.image_to_string(img, lang='jpn+eng')
-    print(text)
+    subprocess.run(['wl-copy'], input=text, text=True, check=True)
   ''

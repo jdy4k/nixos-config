@@ -37,6 +37,10 @@
       inputs.quickshell.follows = "quickshell";
     };
     nix-firefox-addons.url = "github:osipog/nix-firefox-addons";
+    langtools = { 
+      url = "github:jdy4k/nixos-langtools"; 
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -55,7 +59,10 @@
         lenovo-blue = nixpkgs.lib.nixosSystem {
           inherit system;
           modules = [
+            ({ pkgs, ... }: { 
+              nixpkgs.overlays = [ langtools.overlays.default ];
             (import ./hosts/lenovo-blue)
+            })
           ];
           specialArgs = {
             host = "lenovo-blue";

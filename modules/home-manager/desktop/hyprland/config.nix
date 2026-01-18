@@ -160,7 +160,10 @@
         "SUPER, XF86AudioPause, exec, mpc toggle"
         "SUPER, XF86AudioPlay, exec, mpc toggle"
         "SUPER, XF86AudioPrev, exec, mpc prev"
-      ];
+      ]
+      ++ (if myconfig.extra.lang-tools.enable then
+          ["SUPER, O, exec, tesseract-ocr"]
+      else [ ]);
 
         binde = [
           " ,XF86AudioRaiseVolume, exec, wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 1%+"
