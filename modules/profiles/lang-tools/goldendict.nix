@@ -29,13 +29,14 @@ in
     mecab
     wl-clipboard
     local.gd-tools
+    local.gd-anki
   ];
 
   home.file.".local/share/gd-tools/marisa_words.dic".source = 
     "${pkgs.local.gd-tools}/share/gd-tools/marisa_words.dic";
 
-  home.file.".local/gd-manadarin".source = 
-    ./gd-manadarin;
+    #home.file.".local/gd-mandarin".source = 
+    #  ./gd-mandarin;
   
   systemd.user.services.gd-clipboard = {
     Unit = {
