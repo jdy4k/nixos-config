@@ -1,14 +1,14 @@
 { pkgs }:
 
-pkgs.writers.writePython3Bin "tesseract-ocr" 
-  #{
+pkgs.writers.writePython3Bin "gd-anki-switch" 
+  {
   #  libraries = with pkgs.python3Packages; [ 
   #  ];
   #  makeWrapperArgs = [
   #    "--prefix PATH : ${pkgs.lib.makeBinPath [ 
   #    ]}"
   #  ];
-  #}
+  }
   ''
   #!/usr/bin/env python3
   """

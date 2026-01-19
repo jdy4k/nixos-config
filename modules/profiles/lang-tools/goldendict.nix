@@ -29,7 +29,7 @@ in
     mecab
     wl-clipboard
     local.gd-tools
-    local.gd-anki
+    local.gd-anki-switch
   ];
 
   home.file.".local/share/gd-tools/marisa_words.dic".source = 
