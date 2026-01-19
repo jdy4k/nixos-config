@@ -59,21 +59,21 @@ in
       '';
   }; 
 
-  systemd.user.services.clipboard-bridge = {
-    Unit = {
-      Description = "Send clipboard primary to normal clipboard";
-      After = [ "graphical-session.target" ];
-      PartOf = [ "graphical-session.target" ];
-    };
-    Service = {
-      Type = "simple";
-      ExecStart = "${pkgs.wl-clipboard}/bin/wl-paste --primary --watch ${bridge}";
-      Restart = "on-failure";
-      RestartSec = 5;
-    };
-    Install = {
-      WantedBy = [ "graphical-session.target" ];
-    };
-  };
+  #systemd.user.services.clipboard-bridge = {
+  #  Unit = {
+  #    Description = "Send clipboard primary to normal clipboard";
+  #    After = [ "graphical-session.target" ];
+  #    PartOf = [ "graphical-session.target" ];
+  #  };
+  #  Service = {
+  #    Type = "simple";
+  #    ExecStart = "${pkgs.wl-clipboard}/bin/wl-paste --primary --watch ${bridge}";
+  #    Restart = "on-failure";
+  #    RestartSec = 5;
+  #  };
+  #  Install = {
+  #    WantedBy = [ "graphical-session.target" ];
+  #  };
+  #};
 
 }

@@ -54,4 +54,21 @@ in
       WantedBy = [ "graphical-session.target" ];
     };
   };
+
+  systemd.user.services.gd-anki-switch = {
+    Unit = {
+      Description = "gd-anki-switch http";
+      After = [ "graphical-session.target" ];
+      PartOf = [ "graphical-session.target" ];
+    };
+    Service = {
+      Type = "simple";
+      ExecStart = "${pkgs.local.gd-anki-switch}/bin/gd-anki-switch server &";
+      Restart = "on-failure";
+      RestartSec = 5;
+    };
+    Install = {
+      WantedBy = [ "graphical-session.target" ];
+    };
+  };
 }

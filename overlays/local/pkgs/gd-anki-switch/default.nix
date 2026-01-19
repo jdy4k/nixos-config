@@ -1,189 +1,261 @@
 { pkgs }:
-
-pkgs.writers.writePython3Bin "gd-anki-switch" 
+pkgs.writers.writePython3Bin "gd-anki-switch"
   {
-  #  libraries = with pkgs.python3Packages; [ 
-  #  ];
-  #  makeWrapperArgs = [
-  #    "--prefix PATH : ${pkgs.lib.makeBinPath [ 
-  #    ]}"
-  #  ];
+    libraries = with pkgs.python3Packages; [
+    ];
+    makeWrapperArgs = [
+      "--prefix PATH : ${pkgs.lib.makeBinPath [
+        pkgs.procps
+        pkgs.wl-clipboard
+        pkgs.goldendict-ng
+      ]}"
+    ];
   }
-  ''
-  #!/usr/bin/env python3
-  """
-  GoldenDict Anki Connect Toggle Script
-  Toggles between two different Anki Connect configurations
-  """
-  
-  import xml.etree.ElementTree as ET
-  import sys
-  import os
-  
-  # Configuration State 1
-  STATE_1 = {
-      'enabled': '1',
-      'host': '127.0.0.1',
-      'port': '8765',
-      'deck': 'Bank',
-      'model': 'Japanese sentences',
-      'text': 'VocabDeff',
-      'word': 'VocabKanji',
-      'sentence': 'SentKanji'
-  }
-  
-  # Configuration State 2
-  STATE_2 = {
-      'enabled': '1',
-      'host': '127.0.0.1',
-      'port': '8765',
-      'deck': 'Study',
-      'model': 'Basic',
-      'text': 'Definition',
-      'word': 'Word',
-      'sentence': 'Example'
-  }
-  
-  def get_config_path():
-      """Get the GoldenDict config file path based on OS"""
-      home = os.path.expanduser("~")
-      
-      if sys.platform == "win32":
-          config_path = os.path.join(home, "AppData", "Roaming", "GoldenDict", "config")
-      elif sys.platform == "darwin":
-          config_path = os.path.join(home, "Library", "Preferences", "GoldenDict", "config")
-      else:  # Linux
-          config_path = os.path.join(home, ".goldendict", "config")
-      
-      return config_path
-  
-  def find_anki_section(root):
-      """Find the ankiConnectServer element in the XML tree"""
-      # Try different possible paths
-      anki_section = root.find('.//ankiConnectServer')
-      if anki_section is None:
-          anki_section = root.find('ankiConnectServer')
-      return anki_section
-  
-  def get_current_state(anki_section):
-      """Determine which state the config is currently in"""
-      if anki_section is None:
-          return None
-      
-      current_deck = anki_section.find('deck')
-      if current_deck is not None and current_deck.text == STATE_1['deck']:
-          return 1
-      return 2
-  
-  def update_anki_section(anki_section, state_config):
-      """Update the ankiConnectServer section with new values"""
-      anki_section.set('enabled', state_config['enabled'])
-      
-      for key, value in state_config.items():
-          if key == 'enabled':
-              continue
-          
-          element = anki_section.find(key)
-          if element is not None:
-              element.text = value
-          else:
-              # Create element if it doesn't exist
-              new_element = ET.SubElement(anki_section, key)
-              new_element.text = value
-  
-  def toggle_config(config_path=None):
-      """Toggle between the two configuration states"""
-      if config_path is None:
-          config_path = get_config_path()
-      
-      if not os.path.exists(config_path):
-          print(f"Error: Config file not found at {config_path}")
-          print("Please specify the correct path as an argument.")
-          return False
-      
-      try:
-          # Parse the XML file
-          tree = ET.parse(config_path)
-          root = tree.getroot()
-          
-          # Find the ankiConnectServer section
-          anki_section = find_anki_section(root)
-          
-          if anki_section is None:
-              print("Error: ankiConnectServer section not found in config file")
-              return False
-          
-          # Determine current state and toggle
-          current_state = get_current_state(anki_section)
-          
-          if current_state == 1:
-              new_state = STATE_2
-              new_state_num = 2
-          else:
-              new_state = STATE_1
-              new_state_num = 1
-          
-          # Update the configuration
-          update_anki_section(anki_section, new_state)
-          
-          # Write back to file with proper formatting
-          tree.write(config_path, encoding='utf-8', xml_declaration=True)
-          
-          print(f"✓ Toggled to State {new_state_num}")
-          print(f"  Deck: {new_state['deck']}")
-          print(f"  Model: {new_state['model']}")
-          
-          return True
-          
-      except ET.ParseError as e:
-          print(f"Error parsing XML: {e}")
-          return False
-      except Exception as e:
-          print(f"Error: {e}")
-          return False
-  
-  def show_current_state(config_path=None):
-      """Display the current configuration state"""
-      if config_path is None:
-          config_path = get_config_path()
-      
-      if not os.path.exists(config_path):
-          print(f"Error: Config file not found at {config_path}")
-          return
-      
-      try:
-          tree = ET.parse(config_path)
-          root = tree.getroot()
-          anki_section = find_anki_section(root)
-          
-          if anki_section is None:
-              print("ankiConnectServer section not found")
-              return
-          
-          print("Current Anki Connect Configuration:")
-          print(f"  Enabled: {anki_section.get('enabled', 'N/A')}")
-          for key in ['host', 'port', 'deck', 'model', 'text', 'word', 'sentence']:
-              element = anki_section.find(key)
-              value = element.text if element is not None else 'N/A'
-              print(f"  {key.capitalize()}: {value}")
-          
-          current_state = get_current_state(anki_section)
-          print(f"\n  Current State: {current_state if current_state else 'Unknown'}")
-          
-      except Exception as e:
-          print(f"Error: {e}")
-  
-  if __name__ == "__main__":
-      if len(sys.argv) > 1:
-          if sys.argv[1] in ['-s', '--show', 'show']:
-              show_current_state(sys.argv[2] if len(sys.argv) > 2 else None)
-          elif sys.argv[1] in ['-h', '--help', 'help']:
-              print("Usage:")
-              print("  python anki_toggle.py [config_path]     - Toggle configuration")
-              print("  python anki_toggle.py -s [config_path]  - Show current state")
-              print("  python anki_toggle.py -h                - Show this help")
-          else:
-              toggle_config(sys.argv[1])
-      else:
-          toggle_config()
-  ''
+''
+import sys
+import subprocess
+import xml.etree.ElementTree as ET
+from pathlib import Path
+
+CONFIG_PATH = Path.home() / ".config/goldendict/config"
+
+PROFILES = {
+    "Chinese": {
+        "deck": "Chinese Bank",
+        "model": "Chinese sentences",
+        "text": "Definition",
+        "word": "Hanzi",
+        "sentence": "Sentence"
+    },
+    "Japanese": {
+        "deck": "Japanese Bank",
+        "model": "Japanese sentences",
+        "text": "VocabDef",
+        "word": "VocabKanji",
+        "sentence": "SentKanji"
+    }
+}
+
+
+def get_current_language():
+    """Read the current language from GoldenDict config."""
+    try:
+        tree = ET.parse(CONFIG_PATH)
+        root = tree.getroot()
+
+        anki_server = root.find('.//ankiConnectServer')
+        if anki_server is None:
+            return "Chinese"
+
+        deck = anki_server.find('deck')
+        if deck is not None and deck.text == "Chinese":
+            return "Chinese"
+        elif deck is not None and deck.text == "Japanese":
+            return "Japanese"
+        return "Chinese"
+    except Exception as e:
+        print(f"Error reading config: {e}", file=sys.stderr)
+        return "Chinese"
+
+
+def kill_goldendict():
+    """Kill all GoldenDict processes."""
+    import time
+    try:
+        # Try multiple process names
+        for proc_name in ['goldendict-ng', 'goldendict']:
+            subprocess.run(
+                ['pkill', '-9', proc_name],
+                stderr=subprocess.DEVNULL,
+                check=False
+            )
+        # Wait for processes to actually terminate
+        time.sleep(1)
+        return True
+    except Exception as e:
+        print(f"Error killing GoldenDict: {e}", file=sys.stderr)
+        return False
+
+
+def update_config(language):
+    """Update the GoldenDict config with the specified language profile."""
+    try:
+        tree = ET.parse(CONFIG_PATH)
+        root = tree.getroot()
+
+        anki_server = root.find('.//ankiConnectServer')
+        if anki_server is None:
+            return False
+
+        profile = PROFILES[language]
+
+        for key, value in profile.items():
+            elem = anki_server.find(key)
+            if elem is not None:
+                elem.text = value
+
+        tree.write(CONFIG_PATH, encoding='utf-8', xml_declaration=True)
+        return True
+    except Exception as e:
+        print(f"Error updating config: {e}", file=sys.stderr)
+        return False
+
+
+def start_goldendict():
+    """Start GoldenDict."""
+    try:
+
+        clipboard = subprocess.run(
+            ['wl-paste'],
+            capture_output=True,
+            text=True,
+            check=False
+        ).stdout.strip()
+
+        subprocess.Popen(
+            ['goldendict', clipboard],
+            stdout=subprocess.DEVNULL,
+            stderr=subprocess.DEVNULL,
+            start_new_session=True
+        )
+        return True
+    except Exception as e:
+        print(f"Error starting GoldenDict: {e}", file=sys.stderr)
+        return False
+
+
+def toggle_language():
+    """Toggle between Chinese and Japanese."""
+    current = get_current_language()
+    new_lang = "Japanese" if current == "Chinese" else "Chinese"
+
+    kill_goldendict()
+    update_config(new_lang)
+    start_goldendict()
+
+    return new_lang
+
+
+def main():
+    if len(sys.argv) > 1:
+        if sys.argv[1] == "toggle":
+            new_lang = toggle_language()
+            print(f"Switched to {new_lang}")
+        elif sys.argv[1] == "server":
+            # Run a simple HTTP server for handling toggle requests
+            from http.server import HTTPServer, BaseHTTPRequestHandler
+
+            class ToggleHandler(BaseHTTPRequestHandler):
+                def do_GET(self):
+                    if self.path == '/toggle':
+                        toggle_language()
+                        self.send_response(200)
+                        self.send_header('Content-type', 'text/html')
+                        self.end_headers()
+                        self.wfile.write(
+                            b'<html><body>Switched! Close this window.'
+                            b'</body></html>'
+                        )
+                    else:
+                        self.send_response(404)
+                        self.end_headers()
+
+                def log_message(self, format, *args):
+                    pass  # Suppress log messages
+
+            server = HTTPServer(('127.0.0.1', 8989), ToggleHandler)
+            print("Server running on http://127.0.0.1:8989")
+            server.serve_forever()
+    else:
+        # Return HTML for display in GoldenDict
+        current = get_current_language()
+        is_chinese = current == "Chinese"
+
+        active_cn = "active" if is_chinese else ""
+        active_jp = "active" if not is_chinese else ""
+        disabled_cn = "disabled" if is_chinese else ""
+        disabled_jp = "disabled" if not is_chinese else ""
+
+        html = (
+            '<style>'
+            '#gdfrom-7dafc8f7728626da94520be92baefcca { '
+            'height: 0px !important; '
+            'overflow: hidden !important; '
+            '}'
+            '#gdfrom-7dafc8f7728626da94520be92baefcca * '
+            '{ display: none !important; }'
+            '#gdfrom-7dafc8f7728626da94520be92baefcca '
+            '+ div[style*="clear"] + .gdarticleseparator '
+            '{ display: none !important; }'
+            '#gdfrom-5e22b90de9e7abf6186769f89222460d .ankibutton, '
+            '#gdfrom-e63f1e57f6f7ceee7531b7593ee0968a .ankibutton '
+            '{ display: none !important; }'
+            '#gdfrom-5e22b90de9e7abf6186769f89222460d .gddictname, '
+            '#gdfrom-e63f1e57f6f7ceee7531b7593ee0968a .gddictname '
+            '{ position: relative; }'
+            '.lang-switch { '
+            'position: absolute; '
+            'top: 35px; '
+            'right: 8px; '
+            'display: flex; '
+            'border: 1px solid #ccc; '
+            'border-radius: 4px; '
+            'overflow: hidden; '
+            'height: 20px; '
+            'font-size: 11px; '
+            'z-index: 1000; '
+            '}'
+            '.lang-btn { '
+            'padding: 2px 6px; '
+            'border: none; '
+            'cursor: pointer; '
+            'background: #f5f5f5; '
+            'color: #666; '
+            'transition: all 0.2s; '
+            '}'
+            '.lang-btn.active { '
+            'background: #2196F3; '
+            'color: white; '
+            'font-weight: bold; '
+            '}'
+            '</style>'
+            '<script>'
+            'document.addEventListener("DOMContentLoaded", function() {'
+            'var targets = ['
+            '"gddictname-5e22b90de9e7abf6186769f89222460d", '
+            '"gddictname-e63f1e57f6f7ceee7531b7593ee0968a"'
+            '];'
+            'targets.forEach(function(targetId) {'
+            'var elem = document.getElementById(targetId);'
+            'if (elem) {'
+            'var switchDiv = document.createElement("div");'
+            'switchDiv.className = "lang-switch";'
+            'switchDiv.innerHTML = '
+            f'"<button class=\\"lang-btn {active_cn}\\" '
+            'onclick=\\"'
+            'var img=new Image(); '
+            "img.src='http://127.0.0.1:8989/toggle'; "
+            'setTimeout(function(){location.reload();}, 1500);\\" '
+            f'{disabled_cn}>'
+            '🇨🇳'
+            '</button>'
+            f'<button class=\\"lang-btn {active_jp}\\" '
+            'onclick=\\"'
+            'var img=new Image(); '
+            "img.src='http://127.0.0.1:8989/toggle'; "
+            'setTimeout(function(){location.reload();}, 1500);\\" '
+            f'{disabled_jp}>'
+            '🇯🇵'
+            '</button>";'
+            'elem.appendChild(switchDiv);'
+            '}'
+            '});'
+            '});'
+            '</script>'
+        )
+        print(html)
+
+
+if __name__ == '__main__':
+    main()
+''
