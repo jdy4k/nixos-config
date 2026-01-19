@@ -34,6 +34,9 @@ in
   home.file.".local/share/gd-tools/marisa_words.dic".source = 
     "${pkgs.local.gd-tools}/share/gd-tools/marisa_words.dic";
 
+  home.file.".local/gd-manadarin".source = 
+    ./gd-manadarin;
+  
   systemd.user.services.gd-clipboard = {
     Unit = {
       Description = "Send clipboard changes to GoldenDict";
