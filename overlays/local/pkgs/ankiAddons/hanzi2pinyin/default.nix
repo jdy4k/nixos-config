@@ -1,18 +1,10 @@
-{ pkgs, lib, ... }:
+{ pkgs }:
 
 pkgs.anki-utils.buildAnkiAddon (finalAttrs: {
   pname = "Hanzi2Pinyin";
   version = "2025.09.22";
 
-  src = pkgs.fetchFromGitHub {
-    owner = "alyssabedard";
-    repo = "Hanzi2Pinyin";
-    rev = "v${finalAttrs.version}";
-    hash = "sha256-+ioTK0CFaN1gdg1Oi9nwrREEUaOHykooWCS8Si19+FI="; # Replace with actual hash
-
-  };
-
-  sourceRoot = "${finalAttrs.src.name}/addon";
+  src = pkgs.lib.cleanSource ./addon/addon;
 
   nativeBuildInputs = with pkgs; [
     zip
@@ -46,10 +38,11 @@ pkgs.anki-utils.buildAnkiAddon (finalAttrs: {
     find lib -type f -name "*.pyc" -delete 2>/dev/null || true
   '';
 
-  meta = with lib; {
+  meta = with pkgs.lib; {
     description = "Anki add-on that adds Pinyin and Zhuyin readings above Chinese characters";
     homepage = "https://github.com/alyssabedard/Hanzi2Pinyin";
     license = licenses.mit;
     platforms = platforms.all;
   };
 })
+

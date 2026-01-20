@@ -1,7 +1,4 @@
-{ pkgs, lib, ... }:
-let
-  hanzi2pinyin = import ./hanzi2pinyin.nix { inherit pkgs lib; };
-in
+{ pkgs, ... }:
 {  
   programs.anki = {
     enable = true;
@@ -11,7 +8,7 @@ in
       anki-connect
       passfail2
       review-heatmap
-      hanzi2pinyin
+      pkgs.local.ankiAddons.hanzi2pinyin
       
       # My AJT fork / harcodes databases to .local/share/Anki2/
       # so the addon can be installed in the Nix store

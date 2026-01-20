@@ -23,6 +23,9 @@
             pkgs = final;
             buildFirefoxXpiAddon = final.lib.local.buildFirefoxXpiAddon;
           };
+          ankiAddons = import ./pkgs/ankiAddons { 
+            pkgs = final;
+          };
         };
       };
 
