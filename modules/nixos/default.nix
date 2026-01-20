@@ -10,5 +10,6 @@
   ++ [ (import ./sddm.nix)     ]
   ++ [ (import ./x11.nix)      ]
   ++ [ (import ./boot.nix)     ]
+  ++ [ (import ./wine.nix)     ]
   ++ [ (import ./xdg.nix)      ];
 }
