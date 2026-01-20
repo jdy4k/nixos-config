@@ -1,0 +1,7 @@
+#!/Users/alyssabedard/Library/Caches/pypoetry/virtualenvs/hanzi2pinyin-lVVQS-eO-py3.12/bin/python
+import sys
+from pypinyin.__main__ import main
+if __name__ == '__main__':
+    if sys.argv[0].endswith('.exe'):
+        sys.argv[0] = sys.argv[0][:-4]
+    sys.exit(main())
