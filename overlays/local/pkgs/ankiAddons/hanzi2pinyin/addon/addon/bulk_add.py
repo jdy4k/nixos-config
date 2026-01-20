@@ -20,7 +20,7 @@ from .tasks import DoTasks, TaskCaller
 log = logging.getLogger(__name__)
 
 ADDON_NAME = "Hanzi2Pinyin"
-ACTION_NAME = f"{ADDON_NAME}: Bulk-generate Pinyin"
+ACTION_NAME = f"{ADDON_NAME}: Bulk-generate Pinyin & Audio"
 
 
 def update_notes_op(col: Collection, nids: Sequence[NoteId], overwrite: bool = False) -> OpChanges:
@@ -66,15 +66,15 @@ def bulk_add_readings(nids: Sequence[NoteId], parent: Browser) -> None:
     ).success(
         lambda out: showInfo(
             parent=parent,
-            title="Pinyin Generation Complete",
+            title="Pinyin & Audio Generation Complete",
             textFormat="rich",
-            text=f"Processed {len(nids)} selected notes.",
+            text=f"Processed {len(nids)} selected notes (pinyin + audio).",
         )
     ).run_in_background()
 
 
 def bulk_add_readings_overwrite(nids: Sequence[NoteId], parent: Browser) -> None:
-    """Run bulk pinyin generation on selected notes, overwriting existing data."""
+    """Run bulk pinyin and audio generation on selected notes, overwriting existing data."""
     if not nids:
         tooltip("No notes selected")
         return
@@ -87,7 +87,7 @@ def bulk_add_readings_overwrite(nids: Sequence[NoteId], parent: Browser) -> None
     ).success(
         lambda out: showInfo(
             parent=parent,
-            title="Pinyin Generation Complete",
+            title="Pinyin & Audio Generation Complete",
             textFormat="rich",
             text=f"Processed {len(nids)} selected notes (overwrite mode).",
         )

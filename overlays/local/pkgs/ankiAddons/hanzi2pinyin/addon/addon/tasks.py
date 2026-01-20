@@ -1,11 +1,12 @@
 # ==================================================================
 # addon/tasks.py
 # ==================================================================
-# Handles automatic pinyin generation for ExpressionPinyin and SentencePinyin fields
+# Handles automatic pinyin and audio generation
 # Based on the Japanese plugin's task system
 # ==================================================================
 import enum
 import logging
+import re
 from typing import Optional
 
 import anki.collection
@@ -16,6 +17,7 @@ from anki.utils import strip_html_media
 from aqt import mw
 
 from .components.ruby_processor import RubyProcessor
+from .audio import fetch_audio_for_text
 
 log = logging.getLogger(__name__)
 
@@ -61,6 +63,25 @@ class PinyinTask:
         return caller in self.triggered_by
 
 
+class AudioTask:
+    """Represents an audio generation task"""
+    def __init__(self, source_field: str, dest_field: str, triggered_by: TaskCaller):
+        self.source_field = source_field
+        self.dest_field = dest_field
+        self.triggered_by = triggered_by
+    
+    def applies_to_note(self, note: Note) -> bool:
+        """Check if this task applies to the given note"""
+        return (
+            self.source_field in note 
+            and self.dest_field in note
+        )
+    
+    def should_answer_to(self, caller: TaskCaller) -> bool:
+        """Check if this task should run for the given caller"""
+        return caller in self.triggered_by
+
+
 def get_pinyin_tasks() -> list[PinyinTask]:
     """Get list of pinyin generation tasks"""
     # Generate for various common field name patterns
@@ -80,6 +101,26 @@ def get_pinyin_tasks() -> list[PinyinTask]:
         PinyinTask("Word", "WordPinyin", triggered_by),
         PinyinTask("Chinese", "ChinesePinyin", triggered_by),
         PinyinTask("Front", "FrontPinyin", triggered_by),
+    ]
+
+
+def get_audio_tasks() -> list[AudioTask]:
+    """Get list of audio generation tasks"""
+    # Audio generation for word/expression fields
+    # Triggered by all callers
+    triggered_by = TaskCaller.all_enabled()
+    
+    return [
+        # Standard field names - fetch audio for expression/word
+        AudioTask("Expression", "ExpressionAudio", triggered_by),
+        AudioTask("ExpressionPinyin", "ExpressionAudio", triggered_by),
+        AudioTask("Sentence", "SentenceAudio", triggered_by),
+        AudioTask("SentencePinyin", "SentenceAudio", triggered_by),
+        # Alternative field names
+        AudioTask("Hanzi", "Audio", triggered_by),
+        AudioTask("Word", "WordAudio", triggered_by),
+        AudioTask("Chinese", "ChineseAudio", triggered_by),
+        AudioTask("Front", "FrontAudio", triggered_by),
     ]
 
 
@@ -112,12 +153,13 @@ class DoTasks:
         self._overwrite = overwrite
     
     def run(self, changed: bool = False) -> bool:
-        """Run all applicable pinyin generation tasks"""
+        """Run all applicable pinyin and audio generation tasks"""
         print(f"[Hanzi2Pinyin] DoTasks.run() called with caller={self._caller}")
         print(f"[Hanzi2Pinyin] Note fields: {list(self._note.keys())}")
         
+        # Run pinyin tasks
         for task in get_pinyin_tasks():
-            print(f"[Hanzi2Pinyin] Checking task: {task.source_field} -> {task.dest_field}")
+            print(f"[Hanzi2Pinyin] Checking pinyin task: {task.source_field} -> {task.dest_field}")
             
             # If src_field is specified, only process that field
             if self._src_field and task.source_field != self._src_field:
@@ -129,16 +171,33 @@ class DoTasks:
             print(f"[Hanzi2Pinyin]   applies_to_note={applies}, should_answer_to={answers}")
             
             if answers and applies:
-                print(f"[Hanzi2Pinyin]   Running task...")
-                if self._do_task(task):
+                print(f"[Hanzi2Pinyin]   Running pinyin task...")
+                if self._do_pinyin_task(task):
                     changed = True
             else:
                 if not applies:
                     print(f"[Hanzi2Pinyin]   Missing fields: src={task.source_field in self._note}, dest={task.dest_field in self._note}")
         
+        # Run audio tasks
+        for task in get_audio_tasks():
+            print(f"[Hanzi2Pinyin] Checking audio task: {task.source_field} -> {task.dest_field}")
+            
+            # If src_field is specified, only process that field
+            if self._src_field and task.source_field != self._src_field:
+                continue
+            
+            applies = task.applies_to_note(self._note)
+            answers = task.should_answer_to(self._caller)
+            print(f"[Hanzi2Pinyin]   applies_to_note={applies}, should_answer_to={answers}")
+            
+            if answers and applies:
+                print(f"[Hanzi2Pinyin]   Running audio task...")
+                if self._do_audio_task(task):
+                    changed = True
+        
         return changed
     
-    def _do_task(self, task: PinyinTask) -> bool:
+    def _do_pinyin_task(self, task: PinyinTask) -> bool:
         """Execute a single pinyin generation task"""
         changed = False
         
@@ -146,7 +205,7 @@ class DoTasks:
         src_text = self._get_source_text(task.source_field)
         dest_text = self._note[task.dest_field]
         
-        print(f"[Hanzi2Pinyin] _do_task: {task.source_field} -> {task.dest_field} (in_place={task.is_in_place})")
+        print(f"[Hanzi2Pinyin] _do_pinyin_task: {task.source_field} -> {task.dest_field} (in_place={task.is_in_place})")
         print(f"[Hanzi2Pinyin] src_text='{src_text[:50] if src_text else ''}...'")
         print(f"[Hanzi2Pinyin] dest_text empty={not dest_text}")
         
@@ -183,6 +242,48 @@ class DoTasks:
                 traceback.print_exc()
         else:
             print(f"[Hanzi2Pinyin] Skipped: can_process={can_process}, has_src={bool(src_text)}")
+        
+        return changed
+    
+    def _do_audio_task(self, task: AudioTask) -> bool:
+        """Execute a single audio generation task"""
+        changed = False
+        
+        # Get source text (Chinese word/expression)
+        src_text = self._get_source_text(task.source_field)
+        dest_text = self._note[task.dest_field]
+        
+        print(f"[Hanzi2Pinyin] _do_audio_task: {task.source_field} -> {task.dest_field}")
+        print(f"[Hanzi2Pinyin] src_text='{src_text[:30] if src_text else ''}...'")
+        
+        # Check if destination already has audio
+        if not self._overwrite and dest_text and '[sound:' in dest_text:
+            print(f"[Hanzi2Pinyin] Skipped: audio already exists")
+            return False
+        
+        # Check if we can fill destination
+        can_process = self._can_fill_destination(dest_text) and bool(src_text)
+        
+        if can_process:
+            try:
+                # Strip ruby notation from source to get clean Chinese text
+                clean_text = re.sub(r'\[[^\]]+\]', '', src_text).strip()
+                
+                print(f"[Hanzi2Pinyin] Fetching audio for: {clean_text}")
+                audio_tag = fetch_audio_for_text(clean_text, overwrite=self._overwrite)
+                
+                if audio_tag:
+                    self._note[task.dest_field] = audio_tag
+                    changed = True
+                    print(f"[Hanzi2Pinyin] Added audio: {audio_tag}")
+                else:
+                    print(f"[Hanzi2Pinyin] No audio found for: {clean_text}")
+            except Exception as e:
+                print(f"[Hanzi2Pinyin] Error fetching audio: {e}")
+                import traceback
+                traceback.print_exc()
+        else:
+            print(f"[Hanzi2Pinyin] Skipped audio: can_process={can_process}")
         
         return changed
     

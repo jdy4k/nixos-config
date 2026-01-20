@@ -11,3 +11,4 @@ let
 in
 builtins.listToAttrs (map (name: { inherit name; value = importAddon name; }) dirs)
 
+
