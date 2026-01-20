@@ -106,16 +106,14 @@ def get_pinyin_tasks() -> list[PinyinTask]:
 
 def get_audio_tasks() -> list[AudioTask]:
     """Get list of audio generation tasks"""
-    # Audio generation for word/expression fields
+    # Audio generation for word/expression fields only (not sentences)
     # Triggered by all callers
     triggered_by = TaskCaller.all_enabled()
     
     return [
-        # Standard field names - fetch audio for expression/word
+        # Standard field names - fetch audio for expression/word only
         AudioTask("Expression", "ExpressionAudio", triggered_by),
         AudioTask("ExpressionPinyin", "ExpressionAudio", triggered_by),
-        AudioTask("Sentence", "SentenceAudio", triggered_by),
-        AudioTask("SentencePinyin", "SentenceAudio", triggered_by),
         # Alternative field names
         AudioTask("Hanzi", "Audio", triggered_by),
         AudioTask("Word", "WordAudio", triggered_by),
