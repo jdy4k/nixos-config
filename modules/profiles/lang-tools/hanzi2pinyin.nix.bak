@@ -4,9 +4,15 @@ pkgs.anki-utils.buildAnkiAddon (finalAttrs: {
   pname = "Hanzi2Pinyin";
   version = "2025.09.22";
 
-  src = ./Hanzi2Pinyin;
+  src = pkgs.fetchFromGitHub {
+    owner = "alyssabedard";
+    repo = "Hanzi2Pinyin";
+    rev = "v${finalAttrs.version}";
+    hash = "sha256-+ioTK0CFaN1gdg1Oi9nwrREEUaOHykooWCS8Si19+FI="; # Replace with actual hash
 
-  sourceRoot = "addon";
+  };
+
+  sourceRoot = "${finalAttrs.src.name}/addon";
 
   nativeBuildInputs = with pkgs; [
     zip

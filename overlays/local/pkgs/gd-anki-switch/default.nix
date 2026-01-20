@@ -21,14 +21,14 @@ CONFIG_PATH = Path.home() / ".config/goldendict/config"
 
 PROFILES = {
     "Chinese": {
-        "deck": "Chinese Bank",
+        "deck": "Chinese",
         "model": "Chinese sentences",
         "text": "Definition",
-        "word": "Hanzi",
-        "sentence": "Sentence"
+        "word": "ExpressionPinyin",
+        "sentence": "SentencePinyin"
     },
     "Japanese": {
-        "deck": "Japanese Bank",
+        "deck": "Japanese",
         "model": "Japanese sentences",
         "text": "VocabDef",
         "word": "VocabKanji",
