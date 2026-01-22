@@ -4,7 +4,7 @@ pkgs.anki-utils.buildAnkiAddon (finalAttrs: {
   pname = "Hanzi2Pinyin";
   version = "2025.09.22";
 
-  src = pkgs.lib.cleanSource ./addon/addon;
+  src = pkgs.lib.cleanSource ./addon;
 
   nativeBuildInputs = with pkgs; [
     zip

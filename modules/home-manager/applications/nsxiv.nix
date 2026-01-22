@@ -1,6 +1,4 @@
 { input, pkgs, ... }: 
 {
-  home.packages = with pkgs; [
-    nsxiv
-  ];
+  home.packages = with pkgs; [ nsxiv ];
 }

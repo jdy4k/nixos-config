@@ -1,6 +1,11 @@
-{ inputs, myconfig, ... }:
+{ inputs, myconfig, host, ... }:
 {
   programs.fzf.enable = true;
+
+  home.shellAliases = {
+    nr = "sudo nixos-rebuild switch --flake ~/Nixos#${host}";
+  };
+
   imports =
      [ (import ./bash.nix) ]
   ++ (if myconfig.shell.fish.enable 
