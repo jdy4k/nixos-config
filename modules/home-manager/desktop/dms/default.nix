@@ -23,4 +23,6 @@
     enableAudioWavelength = true; # Audio visualizer (cava)
     enableCalendarEvents = true; # Calendar integration (khal)
   };
+
+  xdg.configFile."DankMaterialShell/settings.json".source = lib.mkForce ./_config/settings.json;
 }

@@ -7,6 +7,6 @@
       uosc
     ];
   };
-  xdg.configFile."mpv/mpv.conf".source = ./conf/mpv.conf;
-  xdg.configFile."mpv/script-opts".source = ./conf/script-opts;
+  xdg.configFile."mpv/mpv.conf".source = ./_conf/mpv.conf;
+  xdg.configFile."mpv/script-opts".source = ./_conf/script-opts;
 }
