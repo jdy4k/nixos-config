@@ -4,9 +4,9 @@
      (if myconfig.extra.wacom.enable
       then [ ./wacom.nix       ] else [ ])
   ++ (if myconfig.extra.discord.enable     
-      then [ ./discord.nix     ] else [ ])
+      then [ ./discord         ] else [ ])
   ++ (if myconfig.extra.libreoffice.enable 
-      then [ ./libreoffice.nix ] else [ ])
+      then [ ./libreoffice     ] else [ ])
   ++ (if myconfig.extra.mpd.enable         
       then [ ./mpd             ] else [ ])
   ++ (if myconfig.extra.gaming.enable      
