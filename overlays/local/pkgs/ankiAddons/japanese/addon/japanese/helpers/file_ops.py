@@ -51,12 +51,14 @@ def find_config_json() -> pathlib.Path:
 
 @functools.cache
 def user_files_dir() -> pathlib.Path:
-    #"""Return path to the user files directory."""
-    #for parent_dir in walk_parents(__file__):
-    #    if (dir_path := parent_dir.joinpath("user_files")).is_dir():
-    #        return dir_path
-    #raise RuntimeError("couldn't find user_files directory")
-    return pathlib.Path(os.getenv("HOME")) / ".local"/ "share" / "Anki2"
+    """Return path to the user files directory."""
+    if pathlib.Path(os.getenv("ANKI_JAPANESE_DIR")).is_dir():
+        return pathlib.Path(os.getenv("ANKI_JAPANESE_DIR"))
+    else:
+        for parent_dir in walk_parents(__file__):
+            if (dir_path := parent_dir.joinpath("user_files")).is_dir():
+                return dir_path
+    raise RuntimeError("couldn't find user_files directory")
 
 
 def open_file(path: str) -> None:
