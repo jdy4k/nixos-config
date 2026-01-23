@@ -7,13 +7,17 @@
       fcitx5.addons = with pkgs; [
         fcitx5-mozc # Japanese
         fcitx5-rime # Chinese
+        rime-data
         fcitx5-gtk
       ];
     };
   };
 
-  environment.sessionVariables = rec {
+  home.sessionVariables = {
     QT_IM_MODULE = "fcitx";
     XMODIFIERS = "@im=fcitx";
   };
+
+  xdg.configFile."fcitx5/config".source = ./_conf/config;
+  xdg.configFile."fcitx5/profile".source = ./_conf/profile;
 }
