@@ -1,4 +1,4 @@
-{ inputs, pkgs, config, lib, username, host, tz, myconfig, ... }:
+{ inputs, pkgs, config, lib, username, host, tz, myconfig, self, ... }:
 {
   ### HOST VARS ###
   networking.hostName = "${host}";
@@ -22,7 +22,7 @@
   
       backupFileExtension = "bak";
       extraSpecialArgs = {
-        inherit inputs username host myconfig pkgs; 
+        inherit inputs username host myconfig pkgs self; 
       };
       users.${username} = {
         imports = 

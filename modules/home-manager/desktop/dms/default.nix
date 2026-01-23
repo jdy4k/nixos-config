@@ -2,7 +2,6 @@
 {
   imports = [ 
     inputs.dms.homeModules.dank-material-shell 
-    ./theme.nix
   ];
 
   programs.dank-material-shell = {

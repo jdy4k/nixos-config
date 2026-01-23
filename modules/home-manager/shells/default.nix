@@ -1,9 +1,9 @@
-{ host, self, ... }:
+{ myconfig, host, self, ... }:
 {
   programs.fzf.enable = true;
 
   home.shellAliases = {
-    nr = "sudo nixos-rebuild switch --flake ~/${self}#${host}";
+    nr = "sudo nixos-rebuild switch --flake ~/Nixos#${host}";
   };
 
   imports =
