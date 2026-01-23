@@ -3,6 +3,7 @@
   imports =
      [ (import ./lf)         ]
   ++ [ (import ./mpv)        ]
+  ++ [ (import ./fcitx5)     ]
 
   ++ [ (import ./librewolf.nix)  ]
   ++ [ (import ./dolphin.nix)    ]
