@@ -1,9 +1,7 @@
 { inputs, myconfig, ... }:
 {
   imports =
-     (if myconfig.extra.japanese.enable
-      then [ ./japanese.nix    ] else [ ])
-  ++ (if myconfig.extra.wacom.enable
+     (if myconfig.extra.wacom.enable
       then [ ./wacom.nix       ] else [ ])
   ++ (if myconfig.extra.discord.enable     
       then [ ./discord.nix     ] else [ ])

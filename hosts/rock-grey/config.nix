@@ -21,7 +21,6 @@
       enable = true;
       output = "HDMI-A-1";
     };
-    japanese.enable = true;
     mpd.enable = true;
     gaming.enable = true;
     discord.enable = true;
