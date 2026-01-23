@@ -1,48 +1,8 @@
 { pkgs }:
-
 pkgs.anki-utils.buildAnkiAddon (finalAttrs: {
-  pname = "Hanzi2Pinyin";
-  version = "2025.09.22";
-
+  pname = "Japanese";
+  version = "v25.5.15.0";
   src = pkgs.lib.cleanSource ./addon;
-
-  nativeBuildInputs = with pkgs; [
-    zip
-    python3
-  ];
-
-  propagatedBuildInputs = with pkgs.python3Packages; [
-    jieba
-    pypinyin
-  ];
-
-  preBuild = ''
-    # Clean source
-    find . -type d -name "__pycache__" -exec rm -rf {} + 2>/dev/null || true
-    find . -type f -name "*.pyc" -delete 2>/dev/null || true
-    
-    # Create lib and copy dependencies using tar to avoid permission issues
-    mkdir -p lib
-    
-    (cd ${pkgs.python3Packages.jieba}/${pkgs.python3.sitePackages} && \
-     tar cf - --exclude='__pycache__' --exclude='*.pyc' --exclude='*.pyo' jieba) | \
-    (cd lib && tar xf -)
-    
-    (cd ${pkgs.python3Packages.pypinyin}/${pkgs.python3.sitePackages} && \
-     tar cf - --exclude='__pycache__' --exclude='*.pyc' --exclude='*.pyo' pypinyin) | \
-    (cd lib && tar xf -)
-    
-    # Make everything writable and final cleanup
-    chmod -R +w lib/
-    find lib -type d -name "__pycache__" -exec rm -rf {} + 2>/dev/null || true
-    find lib -type f -name "*.pyc" -delete 2>/dev/null || true
-  '';
-
-  meta = with pkgs.lib; {
-    description = "Anki add-on that adds Pinyin and Zhuyin readings above Chinese characters";
-    homepage = "https://github.com/alyssabedard/Hanzi2Pinyin";
-    license = licenses.mit;
-    platforms = platforms.all;
-  };
+  sourceRoot = "${finalAttrs.src.name}/japanese";
 })
 
