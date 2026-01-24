@@ -11,7 +11,8 @@
     ++ [ (import ./../../modules/nixos/boot.nix)       ] 
     ++ [ (import ./../../modules/nixos)                ] 
     ++ [ (import ./../../roles)                        ]
-    ++ [ inputs.home-manager.nixosModules.home-manager ];
+    ++ [ inputs.home-manager.nixosModules.home-manager ]
+    ++ [ inputs.sops-nix.nixosModules.sops             ];
 
   ### HOME MANAGER ###
   
@@ -36,6 +37,13 @@
       programs.home-manager.enable = true;
     };
   };
+
+  ### SOPS ###
+
+  sops.defaultSopsFile = ./../../secrets/secrets.yaml;
+  sops.defaultSopsFormat = "yaml";
+
+  sops.age.keyFile = "/home/${username}/.config/sops/age/keys.txt";
 
   ### USERS ###
 
