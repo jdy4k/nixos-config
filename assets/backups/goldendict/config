@@ -1,0 +1,309 @@
+<config>
+ <paths>
+  <path recursive="1">/home/jdy4k/.local/share/dictionaries/MDX</path>
+ </paths>
+ <sounddirs/>
+ <dictionaryOrder id="0" name="">
+  <dictionary name="English Wikipedia">ae6f89aac7151829681b85f035d54e48</dictionary>
+  <dictionary name="English Wiktionary">affcf9678e7bfe701c9b071f97eccba3</dictionary>
+  <dictionary name="dict.org">6eb6f7a1df225e1cfdcd4cf8e9e4771b</dictionary>
+  <dictionary name="(The Japan Times) A Dictionary of Japanese Grammar [Complete Edition]">955d3fbca9ffdbc692caaf491af16157</dictionary>
+  <dictionary name="(Weblio) 日本語活用形辞書">c4cea3f9c4aacc3800ec02c163f54574</dictionary>
+  <dictionary name="（くろしお出版）日本語文型辞典［英語版］">3be13aca856ac3091583054c7485f00d</dictionary>
+  <dictionary name="（アルク）どんなときどう使う日本語表現文型辞典［新装版］">a4088758a5f65606d203bb53b4701c56</dictionary>
+  <dictionary name="（日本語NET）JLPT文法解説まとめ">0b277173e2eb46bc80e7ee300af671e2</dictionary>
+  <dictionary name="字源 (2012)">a1ffc2347a747ccdd6e235773be3d351</dictionary>
+  <dictionary name="康熙字典2020">c9c3a2da3af2ac8751d3fd485d60efcd</dictionary>
+  <dictionary name="漢字音形義字典20191017">c977d9faf5ba5be6f814b9766c5309c6</dictionary>
+  <dictionary name="漢語大字典 (2010)">fde2cbab157b85e65e29119d4292f41f</dictionary>
+  <dictionary name="說文解字（綜合版）">c55eb3f571c5e81bca2957742e1dd1ef</dictionary>
+  <dictionary name="部件檢索">b1ebc7283761a3e0afb43f6c26750600</dictionary>
+  <dictionary name="電腦漢字字典">522115472f1c5297701080d9021b4892</dictionary>
+  <dictionary name="dreye 8">d184c38edcc80ce05b28b94e11cd59f7</dictionary>
+  <dictionary name="（三省堂）超級クラウン中日辞典">e581975a431525652c7605f30c4e4d6b</dictionary>
+  <dictionary name="大修館書店中日大辞典(增订第二版)">89c38e9908e93abf81f525a835ff16e9</dictionary>
+  <dictionary name="小学馆中日辞典 第三版">31304d8024538b890bb8818b2b0c3b47</dictionary>
+  <dictionary name="中日大辞典v3">3438394a12e235496c80eb3fbea6ee12</dictionary>
+  <dictionary name="白水社中国語辞典">d7c214091923c73593fb80202b159a12</dictionary>
+  <dictionary name="xinshijirihan">ad73bc3f9f80e64f3495716bd488c562</dictionary>
+  <dictionary name="日漢雙解詞典">256ee825cc1758eedbbe2c0d839dd859</dictionary>
+  <dictionary name="《Dr I 9">c2dc77d4b9b0300a9488686972e86a77</dictionary>
+  <dictionary name="（三省堂）超級クラウン日中辞典">2268228cad85ef76c92d5e22ac4ac0b5</dictionary>
+  <dictionary name="[其他语种] 《新日汉大辞典》（转自金山词霸09版）[字數100107](090126)">22ee865b5e3ef22d70f047764a90cc41</dictionary>
+  <dictionary name="新時代日漢辭典">9f13ca5ac8e985ae8114824c69976a69</dictionary>
+  <dictionary name="小学館日中辞典v3">cac5511f7dc7cf5fecafa7dbf9157d84</dictionary>
+  <dictionary name="MOJi辞書">cff60fe0225d01ff7fe6b3a2e8cb1d56</dictionary>
+  <dictionary name="講談社日中">29fd110afdc82c18d62edb0b48f4a4cc</dictionary>
+  <dictionary name="日本语句型辞典">c200de0afec802a442bb0c64e483c116</dictionary>
+  <dictionary name="《英辞郎日英辞典》">74686de282271c00ae119d6d445e095e</dictionary>
+  <dictionary name="(EDRDG) JMdict [Version 2022.09.20]">dfab61a319c00a66a47aa21165854fbe</dictionary>
+  <dictionary name="(EDRDG) JMnedict [Version 2022.09.23]">163eb6ece48258a06d7ef6628116bb10</dictionary>
+  <dictionary name="ロングマン和英辞典">5cba5876967b94adc99ee25b4ca215c9</dictionary>
+  <dictionary name="ACE2J">560ab437954bd7aeb0f6e7ae463db0e4</dictionary>
+  <dictionary name="（小学館）プログレッシブ和英中辞典［第四版］">596f280e384c86ebb9258341db842a32</dictionary>
+  <dictionary name="《英辞郎v86英和辞典》[090412]">e56ef6cbaf13b24aa1cbf79d99a546ce</dictionary>
+  <dictionary name="ロングマン英和辞典">0073b9a562c2a9f15f11b75fe948d532</dictionary>
+  <dictionary name="（三省堂）ウィズダム英和辞典［第四版］">b5feb0b1021745f836a26820213ee1f4</dictionary>
+  <dictionary name="ACE2">54695f0f5d388a79277f9cbe999986cd</dictionary>
+  <dictionary name="（大修館）ジーニアス英和辞典［第六版］">b89e60cd2a0a0292ff2ebd6f254c1b69</dictionary>
+  <dictionary name="（小学館）プログレッシブ英和中辞典［第五版］">7e8b90fdbea8831da103a578b0a057a7</dictionary>
+  <dictionary name="（研究社）コンパスローズ英和辞典">9818277609ce197c98377e49b7ecacf6</dictionary>
+  <dictionary name="研究社新英和中辞典第6版">dfd4ccedffa83afe52fb783980d16425</dictionary>
+  <dictionary name="研究社新編英和活用大辞典">3eb15571bf9a8d18ea3cfb8f956c9b8c</dictionary>
+  <dictionary name="Tuttle Compact Japanese Dictionary">1f2c0c28ea63d7308caa78031847742c</dictionary>
+  <dictionary name="（三省堂）ウィズダム英和・和英辞典［第二版・第一版］">bb6374151520b50b35404c77a2595d49</dictionary>
+  <dictionary name="《GENUIS日英英日词典》[150574](090529)">40ff8f9bdef1bdebe215baf5e688c1cd</dictionary>
+  <dictionary name="（小学館）日本大百科全書 [2022.09]">f6f454e88fb836ae6f6a291b605bbb6e</dictionary>
+  <dictionary name="（三省堂）スーパー大辞林 [3.0]">cfa03029450d8050d7e1aa610a4fb1b6</dictionary>
+  <dictionary name="（三省堂）国語辞典［第七版］">0b0505c67915297ee81c3657869b7b1c</dictionary>
+  <dictionary name="（三省堂）新明解国語辞典［第七版］">6a4e0ef34d0fbddf5acd07e082648e90</dictionary>
+  <dictionary name="（大修館）明鏡国語辞典［第三版］">07c38c6e630bc5060462df4efd3a1e3b</dictionary>
+  <dictionary name="（小学館）デジタル大辞泉 [2021.10]">258f4f70e4a93b01788d1db010cc5689</dictionary>
+  <dictionary name="（小学館）例解学習国語辞典［第九版］">05b7216d23050f389bb8bc19d1592334</dictionary>
+  <dictionary name="（小学館）日本国語大辞典［第二版］">1f774d311110d25c57c03b9b320b988c</dictionary>
+  <dictionary name="（岩波）国語辞典［第六版］">ac55c62f0344eeeb4c05d3457596e9e3</dictionary>
+  <dictionary name="（岩波）広辞苑［第七版］">e4f76820af548cb0b1a91d7e1c1ec5a3</dictionary>
+  <dictionary name="（旺文社）国語辞典［第十一版］">3eba7fa04a21f09c5613fa2b31fa8c05</dictionary>
+  <dictionary name="(kakijun.com) 漢字書き順辞典">d13d7ad34190d3e9cfc12cbea739262f</dictionary>
+  <dictionary name="（三省堂）全訳漢辞海［第四版］">39dbd34d2354cfd9d9c7c34aba726cdb</dictionary>
+  <dictionary name="（大修館）大漢和辞典">30bba5d51cd8fdacbc368b1cc80e117d</dictionary>
+  <dictionary name="（大修館）新漢語林［第二版］">2b0567b23f75bffe32fd23a79fd279f1</dictionary>
+  <dictionary name="（学研）漢字源［改訂第五版］">6278a9bce1962f4ebfac4b40426c6eff</dictionary>
+  <dictionary name="（平凡社）字通［普及版］">8c098969eef3e6dc4a6f4f551bd3de3e</dictionary>
+  <dictionary name="（角川）新字源［改訂新版］">07ea16491469e1fe274897b9e40703a7</dictionary>
+  <dictionary name="(Lookvise) 日本語俗語辞書">2acd8c0265d1862eebcf6c20162747af</dictionary>
+  <dictionary name="（学研）全訳古語辞典">eaf0f3e3f4767bff9f38fbc7da5ad58a</dictionary>
+  <dictionary name="（角川）古語大辞典">0d97d9fa9595c1274fe88d437ab9c53a</dictionary>
+  <dictionary name="(practical-japanese.com) 実用日本語表現辞典">0ac3a5233ba2076000e44478af51f076</dictionary>
+  <dictionary name="（研究社）日本語表現活用辞典">2cf56f2ab1482d74dc39bc68f52b483b</dictionary>
+  <dictionary name="(Lookvise) 語源由来辞典">754615815c09a9317f8dcd99c7981db0</dictionary>
+  <dictionary name="(Weblio) 類語辞典">cde0ebf31524c17f955195c76f296cd1</dictionary>
+  <dictionary name="（小学館）使い方の分かる類語例解辞典［新装版］">e0bb0a7207c5497d232f219caffac879</dictionary>
+  <dictionary name="（藤本直）類語玉手箱">44c0fc457fe4fcf1660edc48dd9b80ff</dictionary>
+  <dictionary name="(Weblio) 対義語・反対語辞書">b8b254da4a66110fb8952e1026114636</dictionary>
+  <dictionary name="(NHK) 日本語発音アクセント辞典">a6998aef00d66eb1ff14d635aa3d89ce</dictionary>
+  <dictionary name="marisa">5e22b90de9e7abf6186769f89222460d</dictionary>
+  <dictionary name="ankisearch">68dd420d414447dbc120b9069707c509</dictionary>
+  <dictionary name="massif">73cdfe93e9c244e1262e2df2fe5eea39</dictionary>
+  <dictionary name="cc-cedict_enlarged_characters">4a79a84dcb34a18f36ec608d22115d41</dictionary>
+  <dictionary name="mandarin">e63f1e57f6f7ceee7531b7593ee0968a</dictionary>
+  <dictionary name="BCC English Chinese Dictionary (英汉词典)">aa4fa76d98dc2956596f33d72517a48d</dictionary>
+  <dictionary name="Tatoeba - Mandarin-English vocabulary">dd35bae47f20d5b1226ef8d6899b1a6a</dictionary>
+  <dictionary name="Babylon">9e0471ae32c012c76678dfb0bd0fd5b3</dictionary>
+  <dictionary name="Forvo Chinese">cc3441574c7446707dcff12b57015633</dictionary>
+  <dictionary name="anki-deck">7dafc8f7728626da94520be92baefcca</dictionary>
+  <mutedDictionaries/>
+ </dictionaryOrder>
+ <inactiveDictionaries id="0" name="">
+  <mutedDictionaries/>
+ </inactiveDictionaries>
+ <groups nextId="3">
+  <group id="1" name="Japanese">
+   <dictionary name="anki-deck">7dafc8f7728626da94520be92baefcca</dictionary>
+   <dictionary name="marisa">5e22b90de9e7abf6186769f89222460d</dictionary>
+   <dictionary name="（三省堂）スーパー大辞林 [3.0]">cfa03029450d8050d7e1aa610a4fb1b6</dictionary>
+   <dictionary name="（小学館）デジタル大辞泉 [2021.10]">258f4f70e4a93b01788d1db010cc5689</dictionary>
+   <dictionary name="（岩波）広辞苑［第七版］">e4f76820af548cb0b1a91d7e1c1ec5a3</dictionary>
+   <dictionary name="（三省堂）新明解国語辞典［第七版］">6a4e0ef34d0fbddf5acd07e082648e90</dictionary>
+   <dictionary name="ankisearch">68dd420d414447dbc120b9069707c509</dictionary>
+   <dictionary name="massif">73cdfe93e9c244e1262e2df2fe5eea39</dictionary>
+   <mutedDictionaries/>
+  </group>
+  <group id="2" name="Chinese">
+   <dictionary name="anki-deck">7dafc8f7728626da94520be92baefcca</dictionary>
+   <dictionary name="mandarin">e63f1e57f6f7ceee7531b7593ee0968a</dictionary>
+   <dictionary name="cc-cedict_enlarged_characters">4a79a84dcb34a18f36ec608d22115d41</dictionary>
+   <dictionary name="Tatoeba - Mandarin-English vocabulary">dd35bae47f20d5b1226ef8d6899b1a6a</dictionary>
+   <mutedDictionaries/>
+  </group>
+ </groups>
+ <hunspell dictionariesPath=""/>
+ <transliteration>
+  <enableRussianTransliteration>0</enableRussianTransliteration>
+  <enableGermanTransliteration>0</enableGermanTransliteration>
+  <enableGreekTransliteration>0</enableGreekTransliteration>
+  <enableBelarusianTransliteration>0</enableBelarusianTransliteration>
+  <chinese>
+   <enable>0</enable>
+   <enableSCToTWConversion>1</enableSCToTWConversion>
+   <enableSCToHKConversion>1</enableSCToHKConversion>
+   <enableTCToSCConversion>1</enableTCToSCConversion>
+  </chinese>
+  <romaji>
+   <enable>0</enable>
+   <enableHiragana>1</enableHiragana>
+   <enableKatakana>1</enableKatakana>
+  </romaji>
+  <customtrans>
+   <enable>0</enable>
+   <context></context>
+  </customtrans>
+ </transliteration>
+ <lingua>
+  <enable>0</enable>
+  <languageCodes></languageCodes>
+ </lingua>
+ <forvo>
+  <enable>0</enable>
+  <apiKey></apiKey>
+  <languageCodes></languageCodes>
+ </forvo>
+ <mediawikis>
+  <mediawiki enabled="1" icon="" id="ae6f89aac7151829681b85f035d54e48" lang="" name="English Wikipedia" url="https://en.wikipedia.org/w"/>
+  <mediawiki enabled="1" icon="" id="affcf9678e7bfe701c9b071f97eccba3" lang="" name="English Wiktionary" url="https://en.wiktionary.org/w"/>
+  <mediawiki enabled="0" icon="" id="8e0c1c2b6821dab8bdba8eb869ca7176" lang="" name="Russian Wikipedia" url="https://ru.wikipedia.org/w"/>
+  <mediawiki enabled="0" icon="" id="b09947600ae3902654f8ad4567ae8567" lang="" name="Russian Wiktionary" url="https://ru.wiktionary.org/w"/>
+  <mediawiki enabled="0" icon="" id="a8a66331a1242ca2aeb0b4aed361c41d" lang="" name="German Wikipedia" url="https://de.wikipedia.org/w"/>
+  <mediawiki enabled="0" icon="" id="21c64bca5ec10ba17ff19f3066bc962a" lang="" name="German Wiktionary" url="https://de.wiktionary.org/w"/>
+  <mediawiki enabled="0" icon="" id="96957cb2ad73a20c7a1d561fc83c253a" lang="" name="Portuguese Wikipedia" url="https://pt.wikipedia.org/w"/>
+  <mediawiki enabled="0" icon="" id="ed4c3929196afdd93cc08b9a903aad6a" lang="" name="Portuguese Wiktionary" url="https://pt.wiktionary.org/w"/>
+  <mediawiki enabled="0" icon="" id="f3b4ec8531e52ddf5b10d21e4577a7a2" lang="" name="Greek Wikipedia" url="https://el.wikipedia.org/w"/>
+  <mediawiki enabled="0" icon="" id="5d45232075d06e002dea72fe3e137da1" lang="" name="Greek Wiktionary" url="https://el.wiktionary.org/w"/>
+  <mediawiki enabled="0" icon="" id="c015d60c4949ad75b5b7069c2ff6dc2c" lang="zh-hant" name="Traditional Chinese Wikipedia" url="https://zh.wikipedia.org/w"/>
+  <mediawiki enabled="0" icon="" id="d50828ad6e115bc9d3421b6821543108" lang="zh-hant" name="Traditional Chinese Wiktionary" url="https://zh.wiktionary.org/w"/>
+  <mediawiki enabled="0" icon="" id="438b17b48cbda1a22d317fea37ec3110" lang="zh-hans" name="Simplified Chinese Wikipedia" url="https://zh.wikipedia.org/w"/>
+  <mediawiki enabled="0" icon="" id="b68b9fb71b5a8c766cc7a5ea8237fc6b" lang="zh-hans" name="Simplified Chinese Wiktionary" url="https://zh.wiktionary.org/w"/>
+ </mediawikis>
+ <websites>
+  <website enabled="0" icon="" id="b88cb2898e634c6638df618528284c2d" name="Google En-En (Oxford)" script="" url="https://www.google.com/search?q=define:%GDWORD%&amp;hl=en"/>
+  <website enabled="0" icon="" id="f376365a0de651fd7505e7e5e683aa45" name="Urban Dictionary" script="" url="https://www.urbandictionary.com/define.php?term=%GDWORD%"/>
+  <website enabled="0" icon="" id="324ca0306187df7511b26d3847f4b07c" name="Multitran (En-Ru)" script="" url="https://www.multitran.com/m.exe?s=%GDWORD%&amp;l1=1&amp;l2=2"/>
+  <website enabled="0" icon="" id="379a0ce02a34747d642cb0d7de1b2882" name="Merriam-Webster (En)" script="" url="https://www.merriam-webster.com/dictionary/%GDWORD%"/>
+ </websites>
+ <dictservers>
+  <server databases="wn" enabled="1" icon="" id="6eb6f7a1df225e1cfdcd4cf8e9e4771b" name="dict.org" strategies="" url="dict://dict.org"/>
+ </dictservers>
+ <programs>
+  <program commandLine="festival --tts" enabled="0" icon="" id="428b4c2b905ef568a43d9a16f59559b0" name="Festival" type="0"/>
+  <program commandLine="espeak %GDWORD%" enabled="0" icon="" id="2cf8b3a60f27e1ac812de0b57c148340" name="Espeak" type="0"/>
+  <program commandLine="man -a --html=/bin/cat %GDWORD%" enabled="0" icon="" id="4f898f7582596cea518c6b0bfdceb8b3" name="Manpages" type="2"/>
+  <program commandLine="gd-marisa --word %GDWORD% --sentence %GDSEARCH% --path-to-dic /home/jdy4k/.local/share/gd-tools/marisa_words.dic" enabled="1" icon="" id="5e22b90de9e7abf6186769f89222460d" name="marisa" type="2"/>
+  <program commandLine="gd-ankisearch --word %GDWORD%" enabled="1" icon="" id="68dd420d414447dbc120b9069707c509" name="ankisearch" type="2"/>
+  <program commandLine="gd-massif --word %GDWORD%" enabled="1" icon="" id="73cdfe93e9c244e1262e2df2fe5eea39" name="massif" type="2"/>
+  <program commandLine="gd-mandarin.sh --word %GDWORD% --sentence %GDSEARCH%" enabled="1" icon="" id="e63f1e57f6f7ceee7531b7593ee0968a" name="mandarin" type="2"/>
+  <program commandLine="gd-anki-switch" enabled="1" icon="" id="7dafc8f7728626da94520be92baefcca" name="anki-deck" type="2"/>
+ </programs>
+ <mutedDictionaries/>
+ <popupMutedDictionaries/>
+ <dictionariesToReindex/>
+ <preferences>
+  <interfaceLanguage></interfaceLanguage>
+  <interfaceFont>Noto Sans</interfaceFont>
+  <interfaceFontSize_0>12</interfaceFontSize_0>
+  <enableInterfaceFont>0</enableInterfaceFont>
+  <customFonts monospace="FiraCode Nerd Font Light" sans-serif="DejaVu Sans" serif="DejaVu Serif" standard="IPAexMincho"/>
+  <displayStyle>lingvo</displayStyle>
+  <interfaceStyle>Default</interfaceStyle>
+  <newTabsOpenAfterCurrentOne>0</newTabsOpenAfterCurrentOne>
+  <newTabsOpenInBackground>1</newTabsOpenInBackground>
+  <hideSingleTab>0</hideSingleTab>
+  <mruTabOrder>0</mruTabOrder>
+  <hideMenubar>1</hideMenubar>
+  <enableTrayIcon>1</enableTrayIcon>
+  <startToTray>0</startToTray>
+  <closeToTray>0</closeToTray>
+  <autoStart>0</autoStart>
+  <doubleClickTranslates>0</doubleClickTranslates>
+  <selectWordBySingleClick>0</selectWordBySingleClick>
+  <autoScrollToTargetArticle>1</autoScrollToTargetArticle>
+  <escKeyHidesMainWindow>0</escKeyHidesMainWindow>
+  <darkMode>0</darkMode>
+  <darkReaderMode>0</darkReaderMode>
+  <zoomFactor>1.3</zoomFactor>
+  <helpZoomFactor>1</helpZoomFactor>
+  <enableMainWindowHotkey>1</enableMainWindowHotkey>
+  <mainWindowHotkey>Ctrl+F11, Ctrl+F11</mainWindowHotkey>
+  <enableClipboardHotkey>1</enableClipboardHotkey>
+  <clipboardHotkey>Ctrl+C, Ctrl+C</clipboardHotkey>
+  <startWithScanPopupOn>0</startWithScanPopupOn>
+  <enableScanPopupModifiers>0</enableScanPopupModifiers>
+  <scanPopupModifiers>0</scanPopupModifiers>
+  <ignoreOwnClipboardChanges>0</ignoreOwnClipboardChanges>
+  <scanToMainWindow>1</scanToMainWindow>
+  <ignoreDiacritics>0</ignoreDiacritics>
+  <ignorePunctuation>1</ignorePunctuation>
+  <sessionCollapse>0</sessionCollapse>
+  <trackClipboardScan>1</trackClipboardScan>
+  <trackSelectionScan>1</trackSelectionScan>
+  <showScanFlag>0</showScanFlag>
+  <selectionChangeDelayTimer>500</selectionChangeDelayTimer>
+  <pronounceOnLoadMain>0</pronounceOnLoadMain>
+  <pronounceOnLoadPopup>0</pronounceOnLoadPopup>
+  <useInternalPlayer>1</useInternalPlayer>
+  <internalPlayerBackend>Qt Multimedia</internalPlayerBackend>
+  <audioPlaybackProgram></audioPlaybackProgram>
+  <alwaysOnTop>0</alwaysOnTop>
+  <searchInDock>0</searchInDock>
+  <historyStoreInterval>15</historyStoreInterval>
+  <favoritesStoreInterval>15</favoritesStoreInterval>
+  <confirmFavoritesDeletion>1</confirmFavoritesDeletion>
+  <proxyserver enabled="0" useSystemProxy="0">
+   <type>0</type>
+   <host></host>
+   <port>3128</port>
+   <user></user>
+   <password></password>
+  </proxyserver>
+  <ankiConnectServer enabled="1">
+   <host>127.0.0.1</host>
+   <port>8765</port>
+   <deck>Japanese</deck>
+   <model>Japanese sentences</model>
+   <text>VocabDef</text>
+   <word>VocabKanji</word>
+   <sentence>SentKanji</sentence>
+  </ankiConnectServer>
+  <checkForNewReleases>1</checkForNewReleases>
+  <disallowContentFromOtherSites>1</disallowContentFromOtherSites>
+  <hideGoldenDictHeader>0</hideGoldenDictHeader>
+  <maxNetworkCacheSize>50</maxNetworkCacheSize>
+  <clearNetworkCacheOnExit>1</clearNetworkCacheOnExit>
+  <removeInvalidIndexOnExit>0</removeInvalidIndexOnExit>
+  <enableApplicationLog>0</enableApplicationLog>
+  <openWebsiteInNewTab>0</openWebsiteInNewTab>
+  <maxStringsInHistory>500</maxStringsInHistory>
+  <storeHistory>1</storeHistory>
+  <alwaysExpandOptionalParts>1</alwaysExpandOptionalParts>
+  <addonStyle>None</addonStyle>
+  <collapseBigArticles>0</collapseBigArticles>
+  <articleSizeLimit>2000</articleSizeLimit>
+  <limitInputPhraseLength>0</limitInputPhraseLength>
+  <inputPhraseLengthLimit>1000</inputPhraseLengthLimit>
+  <maxDictionaryRefsInContextMenu>20</maxDictionaryRefsInContextMenu>
+  <synonymSearchEnabled>1</synonymSearchEnabled>
+  <stripClipboard>0</stripClipboard>
+  <raiseWindowOnSearch>1</raiseWindowOnSearch>
+  <fullTextSearch>
+   <searchMode>0</searchMode>
+   <dialogGeometry></dialogGeometry>
+   <disabledTypes></disabledTypes>
+   <enabled>1</enabled>
+   <maxDictionarySize>0</maxDictionarySize>
+   <parallelThreads>5</parallelThreads>
+  </fullTextSearch>
+ </preferences>
+ <lastMainGroupId>1</lastMainGroupId>
+ <lastPopupGroupId>0</lastPopupGroupId>
+ <popupWindowState2>AAAA/wAAAAD9AAAAAAAAA5IAAAPgAAAABAAAAAQAAAAIAAAACPwAAAADAAAAAQAAAAEAAAAkAHAAbwBwAHUAcABOAGEAdgBnAGkAYQB0AGkAbwBuAEIAYQByAwAAAAD/////AAAAAAAAAAAAAAACAAAAAgAAABwAcABvAHAAdQBwAFMAZQBhAHIAYwBoAEIAYQByAQAAAAD/////AAAAAAAAAAAAAAAYAHAAbwBwAHUAcABUAG8AbwBsAEIAYQByAQAAAS//////AAAAAAAAAAAAAAACAAAAAQAAABoAZABpAGMAdABpAG8AbgBhAHIAeQBCAGEAcgEAAAAA/////wAAAAAAAAAA</popupWindowState2>
+ <popupWindowGeometry2>AdnQywADAAD///jaAAAAGf///JkAAAQ2///42gAAABn///yZAAAENgAAAAECAAAAB4D///jaAAAAGf///JkAAAQ2</popupWindowGeometry2>
+ <pinPopupWindow>0</pinPopupWindow>
+ <popupWindowAlwaysOnTop>0</popupWindowAlwaysOnTop>
+ <mainWindowState>AAAA/wAAAAD9AAAAAgAAAAAAAABcAAABvPwCAAAAAfsAAAAUAHMAZQBhAHIAYwBoAFAAYQBuAGUAAAAAXgAAAbwAAACjAP///wAAAAEAAACcAAADwvwCAAAAA/sAAAASAGQAaQBjAHQAcwBQAGEAbgBlAAAAAHYAAAFBAAAAcgD////7AAAAGgBmAGEAdgBvAHIAaQB0AGUAcwBQAGEAbgBlAAAAAHYAAAHeAAAAcgD////7AAAAFgBoAGkAcwB0AG8AcgB5AFAAYQBuAGUAAAAAdgAAA8IAAAByAP///wAAB4AAAAQMAAAABAAAAAQAAAAIAAAACPwAAAACAAAAAgAAAAEAAAAUAG4AYQB2AFQAbwBvAGwAYgBhAHIBAAAAAP////8AAAAAAAAAAAAAAAIAAAABAAAAGgBkAGkAYwB0AGkAbwBuAGEAcgB5AEIAYQByAAAAAAD/////AAAAAAAAAAA=</mainWindowState>
+ <mainWindowGeometry>AdnQywADAAD///iAAAAAAP////8AAAQ3///4gAAAAAD/////AAAENwAAAAECAAAAB4D///iAAAAAAP////8AAAQ3</mainWindowGeometry>
+ <dictInfoGeometry>AdnQywADAAD///iAAAAAAP//+tcAAAGP///4gAAAAAD///rXAAABjwAAAAECAAAAB4D///iAAAAAAP//+tcAAAGP</dictInfoGeometry>
+ <inspectorGeometry></inspectorGeometry>
+ <dictionariesDialogGeometry>AdnQywADAAD///iAAAAAAP//+8YAAAIT///4gAAAAAD///vGAAACEwAAAAECAAAAB4D///iAAAAAAP//+8YAAAIT</dictionariesDialogGeometry>
+ <timeForNewReleaseCheck></timeForNewReleaseCheck>
+ <skippedRelease></skippedRelease>
+ <showingDictBarNames>0</showingDictBarNames>
+ <usingToolbarsIconSize>1</usingToolbarsIconSize>
+ <maxHeadwordSize>256</maxHeadwordSize>
+ <maxHeadwordsToExpand>0</maxHeadwordsToExpand>
+ <headwordsDialog>
+  <searchMode>0</searchMode>
+  <matchCase>0</matchCase>
+  <autoApply>0</autoApply>
+  <headwordsExportPath></headwordsExportPath>
+  <headwordsDialogGeometry></headwordsDialogGeometry>
+ </headwordsDialog>
+</config>

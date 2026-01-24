@@ -8,38 +8,37 @@
 
   imports = 
        [ (import ./hardware-configuration.nix)         ]
-    ++ [ (import ./../../modules/nixos/boot.nix)     ] 
+    ++ [ (import ./../../modules/nixos/boot.nix)       ] 
     ++ [ (import ./../../modules/nixos)                ] 
     ++ [ (import ./../../roles)                        ]
     ++ [ inputs.home-manager.nixosModules.home-manager ];
 
   ### HOME MANAGER ###
   
-    home-manager = {
+  home-manager = {
   
-      useUserPackages = true;
-      useGlobalPkgs = true;
+    useUserPackages = true;
+    useGlobalPkgs = true;
   
-      backupFileExtension = "bak";
-      extraSpecialArgs = {
-        inherit inputs username host myconfig pkgs self; 
-      };
-      users.${username} = {
-        imports = 
-           [ ./../../modules/home-manager ]
-        ++ [ ./../../modules/profiles     ];
-        home = {
-          username = "${username}";
-          homeDirectory = "/home/${username}";
-          stateVersion = "25.11";
-        };
-        programs.home-manager.enable = true;
-      };
+    backupFileExtension = "bak";
+    extraSpecialArgs = {
+      inherit inputs username host myconfig pkgs self; 
     };
+    users.${username} = {
+      imports = 
+         [ ./../../modules/home-manager ]
+      ++ [ ./../../modules/profiles     ];
+      home = {
+        username = "${username}";
+        homeDirectory = "/home/${username}";
+        stateVersion = "25.11";
+      };
+      programs.home-manager.enable = true;
+    };
+  };
 
   ### USERS ###
 
-  # Main user
   programs.bash.enable = true;
   programs.fish.enable = (myconfig.shell.fish.enable);
   programs.zsh.enable = (myconfig.shell.zsh.enable);
@@ -61,8 +60,4 @@
               pkgs.bash;
   };
   nix.settings.allowed-users = [ "${username}" ];
-
-  # Additional users
-  # ...
-
 }
