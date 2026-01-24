@@ -38,12 +38,13 @@
     };
   };
 
-  ### SOPS ###
-
-  sops.defaultSopsFile = ./../../secrets/secrets.yaml;
-  sops.defaultSopsFormat = "yaml";
-
-  sops.age.keyFile = "/home/${username}/.config/sops/age/keys.txt";
+  users.users.sshservice = {
+    home = "/var/lib/sshservice";
+    createHome = true;
+    isSystemUser = true;
+    group = "sshservice";
+  };
+  users.groups.sshservice = { };
 
   ### USERS ###
 
